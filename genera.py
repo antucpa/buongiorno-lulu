@@ -180,9 +180,49 @@ def story(x,top,width,k,small=False,bottom=None):
     c.linkURL(item['url'],(x,bottom,x+width,top),relative=0)
     return body_bottom
 
+
+def weather_icon(x,y,description):
+    # Disegno vettoriale: nessuna dipendenza da font emoji.
+    import math
+    desc=description.lower()
+    rain=any(word in desc for word in ('piogg','rovesc','tempor','piov'))
+    snow=any(word in desc for word in ('nev','neve'))
+    fog=any(word in desc for word in ('nebb','fosch'))
+    cloud=rain or snow or any(word in desc for word in ('nuvol','copert'))
+    sun=not (rain or snow or fog or 'coperto' in desc)
+    c.saveState()
+    if sun:
+        c.setStrokeColor(HexColor('#c49027'));c.setFillColor(HexColor('#efc65c'));c.setLineWidth(.8)
+        sx=x-3 if cloud else x; sy=y+3 if cloud else y
+        c.circle(sx,sy,4.2,fill=1,stroke=1)
+        for angle in range(0,360,45):
+            a=math.radians(angle)
+            c.line(sx+6*math.cos(a),sy+6*math.sin(a),sx+8*math.cos(a),sy+8*math.sin(a))
+    if cloud:
+        c.setStrokeColor(HexColor('#89949b'));c.setFillColor(HexColor('#e6ebed'));c.setLineWidth(.7)
+        p=c.beginPath();p.moveTo(x-7,y-4)
+        p.curveTo(x-12,y-4,x-12,y+3,x-7,y+3)
+        p.curveTo(x-7,y+10,x+3,y+10,x+4,y+4)
+        p.curveTo(x+12,y+6,x+14,y-4,x+7,y-4)
+        p.close();c.drawPath(p,fill=1,stroke=1)
+    if rain or snow:
+        c.setStrokeColor(HexColor('#668ba5'));c.setLineWidth(.8)
+        for dx in (-5,1,7):
+            c.line(x+dx,y-6,x+dx-2,y-9)
+            if snow:c.line(x+dx-2,y-6,x+dx,y-9)
+    if fog:
+        c.setStrokeColor(HexColor('#89949b'));c.setLineWidth(1)
+        for dy in (-4,0,4):c.line(x-10,y+dy,x+10,y+dy)
+    c.restoreState()
+
 # Testata e data
-line(M,H-30,W-M,H-30,burg,1.1)
-centered(H-46,'IL QUOTIDIANO CHE SI LEGGE CON IL CAFFÈ',8.6,'SerifB',muted)
+weather_icon(M+11,H-27,meteo['condizioni'])
+label(M+30,H-30,'METEO · MACERATA')
+paragraph(M+148,H-21,CW-288,meteo['condizioni'],8.4,9.5,max_height=19,strict=True)
+c.setFont('SansB',8.0);c.setFillColor(ink);c.drawRightString(W-M,H-30,weather_line)
+c.linkURL(meteo['url'],(M,H-40,W-M,H-12),relative=0)
+line(M,H-44,W-M,H-44,burg,1.1)
+centered(H-58,'IL QUOTIDIANO CHE SI LEGGE CON IL CAFFÈ',8.6,'SerifB',muted)
 centered(H-95,'Buongiorno Lulù',43,'SerifB')
 line(M,H-108,W-M,H-108,burg,1.5);line(M,H-111,W-M,H-111,burg,.4)
 text(M,H-126,'ANNO I  ·  EDIZIONE QUOTIDIANA',8,'SerifB',muted)
@@ -227,12 +267,7 @@ B=H-566;line(M,B,W-M,B,burg,.9)
 label(M,B-14,'IL TACCUINO DI LULÙ')
 paragraph(M,B-21,CW*.57,'Una domanda da portare con sé: che cosa abbiamo imparato oggi che ieri non sapevamo?',9.1,11.1,max_height=34)
 line(M+CW*.62,B-18,M+CW*.62,B-62,HexColor('#c7bdb1'),.5)
-wx=M+CW*.66
-label(wx,B-14,'METEO · MACERATA')
-paragraph(wx,B-23,CW*.34,meteo['condizioni'],8.8,10.4,max_height=27,strict=True)
-text(wx,B-58,weather_line,8.3,'SansB')
-text(wx,B-68,'Previsioni · '+meteo['source'],6.8,'SerifI',muted)
-c.linkURL(meteo['url'],(wx,B-70,W-M,B-5),relative=0)
+paragraph(M+CW*.66,B-21,CW*.34,'Un invito: leggere con curiosità, discutere con rispetto, cambiare idea quando servono nuovi fatti.',8.8,10.4,max_height=43)
 B2=H-640;line(M,B2,W-M,B2,burg,.65)
 label(M,B2-14,'CULTURA, IDEE, SCOPERTE')
 paragraph(M,B2-24,half,items['cultura']['title'],14.0,15.2,'SerifB',max_height=49,strict=True)
@@ -245,7 +280,7 @@ text(M,P-30,psych[0],10.4,'SansB')
 paragraph(M,P-35,CW,psych[1],8.8,10.2,'Sans',max_height=28)
 # Fonti sempre ultime
 F=49;line(M,F,W-M,F,HexColor('#b5a99a'),.5)
-sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]))
+sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]+[meteo['source']]))
 paragraph(M,F-5,CW,'FONTI: '+(sources or 'Feed non disponibili: controllare i link sul sito'),7.1,8.2,max_height=18,color=muted)
 text(M,14,'Notizie: sintesi originali con fonti verificate · Poesia integrale di pubblico dominio',7.1,'SerifI',muted)
 c.showPage();c.save()
@@ -255,7 +290,8 @@ pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
 pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
     json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
+asset_version=now.strftime('%Y%m%d%H%M%S')
 links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
-page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><a href="giornale.jpg"><img src="giornale.jpg" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf">Scarica il giornale PDF</a> · <a href="giornale.jpg">JPEG per la Canon</a></p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
+page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
 with open(os.path.join(ROOT,'index.html'),'w',encoding='utf8') as f:f.write(page)
 print('Edizione generata:',day,os.path.getsize(os.path.join(ROOT,'giornale.jpg')),'byte')
