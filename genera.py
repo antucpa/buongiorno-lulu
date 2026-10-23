@@ -354,6 +354,103 @@ else:
 with Image.open(os.path.join(ROOT,'giornale.jpg')) as check:
     assert check.mode=='RGB' and not check.info.get('progressive'), 'JPEG non baseline'
     check.load()
+# Documento PWG Raster: dati di stampa RGB senza compressione JPEG.
+# Il formato e' scritto e riletto con libcups; nessuna perdita nel trasporto.
+import ctypes as _ct, ctypes.util as _ctutil, struct as _struct
+_cups=_ct.CDLL(_ctutil.find_library('cups') or 'libcups.so.2')
+_cups.pwgMediaForPWG.argtypes=[_ct.c_char_p]
+_cups.pwgMediaForPWG.restype=_ct.c_void_p
+_cups.cupsRasterInitPWGHeader.argtypes=[_ct.c_void_p,_ct.c_void_p,_ct.c_char_p,_ct.c_int,_ct.c_int,_ct.c_char_p,_ct.c_char_p]
+_cups.cupsRasterOpen.argtypes=[_ct.c_int,_ct.c_int]
+_cups.cupsRasterOpen.restype=_ct.c_void_p
+for _func in ('cupsRasterWriteHeader2','cupsRasterReadHeader2'):
+    getattr(_cups,_func).argtypes=[_ct.c_void_p,_ct.c_void_p]
+for _func in ('cupsRasterWritePixels','cupsRasterReadPixels'):
+    getattr(_cups,_func).argtypes=[_ct.c_void_p,_ct.c_void_p,_ct.c_uint]
+    getattr(_cups,_func).restype=_ct.c_uint
+_cups.cupsRasterClose.argtypes=[_ct.c_void_p]
+_pwg_header=_ct.create_string_buffer(1796)
+if not _cups.cupsRasterInitPWGHeader(_pwg_header,_cups.pwgMediaForPWG(b'iso_a4_210x297mm'),b'srgb_8',300,300,b'one-sided',None):
+    raise RuntimeError('Impossibile preparare PWG Raster A4.')
+_pwg_w,_pwg_h=_struct.unpack_from('=II',_pwg_header.raw,372)
+_pwg_stride=_struct.unpack_from('=I',_pwg_header.raw,392)[0]
+# Bordi netti a risoluzione di stampa: niente aloni di ricampionamento o JPEG.
+_aa=fitz.TOOLS.show_aa_level()
+try:
+    fitz.TOOLS.set_aa_level(0)
+    _pwg_pix=pdf[0].get_pixmap(matrix=fitz.Matrix(300/72,300/72),alpha=False)
+finally:
+    fitz.TOOLS.set_aa_level(_aa['graphics'])
+_pwg_image=Image.frombytes('RGB',(_pwg_pix.width,_pwg_pix.height),_pwg_pix.samples)
+# Differenza di arrotondamento A4: si elimina solo il pixel esterno bianco.
+_pwg_image=_pwg_image.crop((0,0,_pwg_w,_pwg_h))
+_pwg_pixels=_pwg_image.tobytes()
+_pwg_path=os.path.join(ROOT,'giornale.pwg')
+_fd=os.open(_pwg_path,os.O_WRONLY|os.O_CREAT|os.O_TRUNC,0o644)
+_raster=_cups.cupsRasterOpen(_fd,3) # CUPS_RASTER_WRITE_PWG
+if not _raster:
+    os.close(_fd);raise RuntimeError('Apertura PWG fallita.')
+try:
+    if not _cups.cupsRasterWriteHeader2(_raster,_pwg_header):
+        raise RuntimeError('Intestazione PWG fallita.')
+    for _y in range(_pwg_h):
+        _row=_pwg_pixels[_y*_pwg_stride:(_y+1)*_pwg_stride]
+        if _cups.cupsRasterWritePixels(_raster,_row,_pwg_stride)!=_pwg_stride:
+            raise RuntimeError('Scrittura PWG incompleta.')
+finally:
+    _cups.cupsRasterClose(_raster);os.close(_fd)
+# Confronto pixel per pixel del documento ricostruito, prima di pubblicare.
+_fd=os.open(_pwg_path,os.O_RDONLY);_raster=_cups.cupsRasterOpen(_fd,0)
+try:
+    _check_header=_ct.create_string_buffer(1796)
+    if not _cups.cupsRasterReadHeader2(_raster,_check_header):
+        raise RuntimeError('PWG non rileggibile.')
+    if _struct.unpack_from('=II',_check_header.raw,372)!=(_pwg_w,_pwg_h):
+        raise RuntimeError('Dimensioni PWG errate.')
+    _check_row=_ct.create_string_buffer(_pwg_stride)
+    for _y in range(_pwg_h):
+        if _cups.cupsRasterReadPixels(_raster,_check_row,_pwg_stride)!=_pwg_stride or _check_row.raw!=_pwg_pixels[_y*_pwg_stride:(_y+1)*_pwg_stride]:
+            raise RuntimeError('PWG diverso dalla pagina originale.')
+finally:
+    _cups.cupsRasterClose(_raster);os.close(_fd)
+with open(_pwg_path,'rb') as _f:
+    _pwg_data=_f.read()
+if not 16384<=len(_pwg_data)<=1400000:
+    raise ValueError('Documento PWG oltre la memoria ESP32: pubblicazione annullata.')
+# Alternativa Apple Raster per stampanti che dichiarano URF anziche PWG.
+_urf_path=os.path.join(ROOT,'giornale.urf')
+_fd=os.open(_urf_path,os.O_WRONLY|os.O_CREAT|os.O_TRUNC,0o644)
+_raster=_cups.cupsRasterOpen(_fd,4)
+try:
+    if not _raster or not _cups.cupsRasterWriteHeader2(_raster,_pwg_header):
+        raise RuntimeError('Intestazione Apple Raster fallita.')
+    for _y in range(_pwg_h):
+        _row=_pwg_pixels[_y*_pwg_stride:(_y+1)*_pwg_stride]
+        if _cups.cupsRasterWritePixels(_raster,_row,_pwg_stride)!=_pwg_stride:
+            raise RuntimeError('Scrittura Apple Raster incompleta.')
+finally:
+    if _raster: _cups.cupsRasterClose(_raster)
+    os.close(_fd)
+_fd=os.open(_urf_path,os.O_RDONLY);_raster=_cups.cupsRasterOpen(_fd,0)
+try:
+    if not _raster or not _cups.cupsRasterReadHeader2(_raster,_check_header):
+        raise RuntimeError('Apple Raster non rileggibile.')
+    for _y in range(_pwg_h):
+        if _cups.cupsRasterReadPixels(_raster,_check_row,_pwg_stride)!=_pwg_stride or _check_row.raw!=_pwg_pixels[_y*_pwg_stride:(_y+1)*_pwg_stride]:
+            raise RuntimeError('Apple Raster diverso dalla pagina originale.')
+finally:
+    if _raster: _cups.cupsRasterClose(_raster)
+    os.close(_fd)
+_documents={}
+for _key,_filename,_mime in (('pdf','giornale.pdf','application/pdf'),('pwg','giornale.pwg','image/pwg-raster'),('urf','giornale.urf','image/urf')):
+    with open(os.path.join(ROOT,_filename),'rb') as _f: _data=_f.read()
+    if not 16384<=len(_data)<=1400000:
+        raise ValueError('Documento oltre la memoria ESP32: pubblicazione annullata.')
+    _documents[_key]={'file':_filename,'formato':_mime,'byte':len(_data),'sha256':hashlib.sha256(_data).hexdigest()}
+with open(os.path.join(ROOT,'stampa-documento.json'),'w',encoding='utf8') as _f:
+    json.dump({'data':day,'generata_alle':now.isoformat(),'risoluzione':300,'tipo':'srgb_8',
+               'documenti':_documents},_f,indent=2)
+
 # Indice compatto per ESP32: data e impronta del JPEG verificabili prima dell'invio.
 with open(os.path.join(ROOT,'giornale.jpg'),'rb') as image_file:
     jpeg_data=image_file.read()
@@ -369,3 +466,4 @@ links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize(
 page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Da leggere</h2><h3>{html.escape(libro['titolo'])}</h3><p>{html.escape(libro['autore'])}</p><p>{html.escape(libro['consiglio'])}</p><p><a href="{html.escape(libro['url'],quote=True)}">Scheda del libro: {html.escape(libro['source'])}</a></p><h2>Idea di viaggio</h2><h3>{html.escape(viaggio['meta'])}</h3><p>{html.escape(viaggio['consiglio'])}</p><p><a href="{html.escape(viaggio['url'],quote=True)}">Scopri la meta: {html.escape(viaggio['source'])}</a></p><h2>L’aforisma</h2><blockquote>{html.escape(aforisma['testo'])}</blockquote><p>{html.escape(aforisma['autore'])}, {html.escape(aforisma['opera'])} · <a href="{html.escape(aforisma['url'],quote=True)}">Wikiquote</a></p><h2>Il Taccuino di Lulù</h2><p>{html.escape(taccuino['pensiero'])}</p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
 with open(os.path.join(ROOT,'index.html'),'w',encoding='utf8') as f:f.write(page)
 print('Edizione generata:',day,os.path.getsize(os.path.join(ROOT,'giornale.jpg')),'byte')
+

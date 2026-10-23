@@ -56,7 +56,7 @@ jobs:
       - name: Installa caratteri e dipendenze
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-liberation
+          sudo apt-get install -y fonts-liberation libcups2t64
           python -m pip install -r requirements.txt
           FONT_FILE=$(fc-match -f '%{file}' 'Liberation Serif')
           echo "LULU_FONTS=$(dirname "$FONT_FILE")" >> "$GITHUB_ENV"
@@ -88,6 +88,16 @@ jobs:
           assert manifest['generata_alle'] == edition['generata_alle']
           assert manifest['byte'] == len(jpeg)
           assert manifest['sha256'] == hashlib.sha256(jpeg).hexdigest()
+          documents = json.loads(Path('stampa-documento.json').read_text())
+          assert documents['data'] == edition['data']
+          assert documents['generata_alle'] == edition['generata_alle']
+          for key, item in documents['documenti'].items():
+              payload = Path(item['file']).read_bytes()
+              assert 16384 <= len(payload) <= 1400000
+              assert len(payload) == item['byte']
+              assert hashlib.sha256(payload).hexdigest() == item['sha256']
+          assert Path('giornale.pwg').read_bytes().startswith(b'RaS2')
+          assert Path('giornale.urf').read_bytes().startswith(b'UNIRAST')
           quote = edition['aforisma']
           for field in ('testo', 'autore', 'opera'):
               assert ''.join(quote[field].split()) in text, 'Aforisma: ' + field + ' tagliato'
@@ -108,7 +118,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add giornale.pdf giornale.jpg edizione.json stampa.json index.html
+          git add giornale.pdf giornale.jpg giornale.pwg giornale.urf edizione.json stampa.json stampa-documento.json index.html
           if ! git diff --cached --quiet; then
             git commit -m "Aggiorna edizione quotidiana"
             git push
@@ -116,7 +126,7 @@ jobs:
       - name: Prepara sito
         run: |
           mkdir -p _site
-          cp index.html giornale.pdf giornale.jpg edizione.json stampa.json _site/
+          cp index.html giornale.pdf giornale.jpg giornale.pwg giornale.urf edizione.json stampa.json stampa-documento.json _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
