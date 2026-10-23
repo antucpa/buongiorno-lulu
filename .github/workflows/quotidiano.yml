@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     paths:
+      - contenuti.json
       - genera.py
       - requirements.txt
       - .github/workflows/quotidiano.yml
@@ -17,7 +18,30 @@ concurrency:
   group: buongiorno-lulu
   cancel-in-progress: false
 jobs:
+  contenuti:
+    runs-on: ubuntu-24.04
+    outputs:
+      pronti: ${{ steps.check.outputs.pronti }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        name: Attendi i contenuti della redazione
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          from pathlib import Path
+          data = json.loads(Path('contenuti.json').read_text())
+          ready = data.get('data') == datetime.now(ZoneInfo('Europe/Rome')).date().isoformat()
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('pronti=' + str(ready).lower() + '\n')
+          if not ready:
+              print('La redazione non ha ancora consegnato il nuovo numero; resta online la precedente edizione.')
+          PY
   giornale:
+    needs: contenuti
+    if: needs.contenuti.outputs.pronti == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     environment:
@@ -52,8 +76,12 @@ jobs:
               assert 'Buongiorno' in pdf[0].get_text()
           for name in ('index.html', 'giornale.jpg', 'giornale.pdf'):
               assert Path(name).stat().st_size > 100
-          if not any(item['url'] for item in edition['notizie'].values()):
-              raise RuntimeError('Tutti i feed non disponibili: conservata la precedente edizione pubblicata.')
+          assert set(edition['notizie']) == {'italia', 'mondo', 'buona', 'marche', 'cultura'}
+          with fitz.open('giornale.pdf') as pdf:
+              text = ''.join(pdf[0].get_text().split())
+          for key, item in edition['notizie'].items():
+              assert item['url'] and len(item['description'].split()) >= 32
+              assert ''.join(item['description'].split()) in text, key + ': testo tagliato nel PDF'
           PY
       - name: Salva edizione nel repository
         run: |

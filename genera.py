@@ -26,31 +26,30 @@ def clean(s):
     s=re.sub(r'<[^>]+>',' ',s or '')
     return re.sub(r'\s+',' ',html.unescape(s)).strip()
 
-def news(query):
-    url='https://news.google.com/rss/search?q='+quote(query)+'&hl=it&gl=IT&ceid=IT:it'
-    try:
-        req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 BuongiornoLulu/1.0'})
-        with urllib.request.urlopen(req,timeout=20) as f: data=f.read()
-        root=ET.fromstring(data)
-        for el in root.findall('./channel/item'):
-            title=clean(el.findtext('title')); link=(el.findtext('link') or '').strip()
-            source=clean(el.findtext('source'))
-            description=clean(el.findtext('description'))
-            if title and link:
-                # Google News spesso ripete il titolo nella descrizione: non inventare riassunti.
-                if description.lower().startswith(title.lower()[:45]): description=''
-                title=re.sub(r'\s+-\s+[^-]{2,55}$','',title).strip()
-                return {'title':title,'source':source,'url':link,'description':description[:380]}
-    except Exception as exc: print('Feed non disponibile',query,exc)
-    return {'title':'Notizia non disponibile','source':'','url':'','description':'La fonte non è raggiungibile al momento della pubblicazione.'}
-
-items={
- 'italia':news('Italia notizia primo piano oggi when:1d'),
- 'mondo':news('notizie esteri mondo internazionale oggi when:1d'),
- 'buona':news('buone notizie ricerca scientifica medicina scoperta when:7d'),
- 'marche':news('Macerata Marche notizie oggi when:3d'),
- 'cultura':news('teatro cultura libri cinema Italia when:3d'),
-}
+# I contenuti sono preparati dalla redazione automatica ChatGPT.
+# Nessun titolo RSS viene scambiato per un articolo completo.
+with open(os.path.join(ROOT,'contenuti.json'),encoding='utf8') as f:
+    edition=json.load(f)
+if edition.get('data') != day:
+    raise RuntimeError('Contenuti non aggiornati a oggi: conservata la precedente edizione.')
+items=edition.get('notizie',{})
+required={'italia','mondo','buona','marche','cultura'}
+if set(items) != required:
+    raise ValueError('Servono cinque rubriche complete.')
+for key,item in items.items():
+    for field in ('title','description','source','url','published_at'):
+        if not isinstance(item.get(field),str) or not item[field].strip():
+            raise ValueError(f'{key}: campo {field} mancante.')
+    if not item['url'].startswith('https://') or 'news.google.com' in item['url']:
+        raise ValueError(f'{key}: serve il link alla fonte originale.')
+    minimum=50 if key in ('italia','mondo') else 32
+    if len(item['description'].split()) < minimum:
+        raise ValueError(f'{key}: testo troppo breve.')
+    age=(now.date()-datetime.strptime(item['published_at'],'%Y-%m-%d').date()).days
+    if age < 0 or age > (7 if key=='buona' else 3 if key in ('marche','cultura') else 1):
+        raise ValueError(f'{key}: fonte non recente.')
+    if any(s in item['description'].lower() for s in ('consulta l’articolo','notizia non disponibile','fonte non raggiungibile')):
+        raise ValueError(f'{key}: testo segnaposto vietato.')
 
 POEMS=[('San Martino','Giosuè Carducci',"""La nebbia a gl’irti colli
 piovigginando sale,
@@ -129,24 +128,35 @@ def text(x,y,s,size=9,font='Serif',color=ink):
     c.setFillColor(color);c.setFont(font,size);c.drawString(x,y,s)
 def centered(y,s,size=9,font='SerifB',color=ink):
     c.setFillColor(color);c.setFont(font,size);c.drawCentredString(W/2,y,s)
-def paragraph(x,top,width,body,size=9.0,leading=10.8,font='Serif',max_height=None,color=ink):
-    st=ParagraphStyle('lulu',fontName=font,fontSize=size,leading=leading,textColor=color)
+def paragraph(x,top,width,body,size=9.0,leading=10.8,font='Serif',max_height=None,color=ink,strict=False):
     body=html.escape(body).replace('\n','<br/>')
-    p=Paragraph(body,st);_,h=p.wrap(width,500)
-    if max_height is not None and h>max_height:
-        words=body.split()
-        while words:
-            words=words[:-1];p=Paragraph(' '.join(words)+'…',st);_,h=p.wrap(width,500)
-            if h<=max_height:break
+    while True:
+        st=ParagraphStyle('lulu',fontName=font,fontSize=size,leading=leading,textColor=color)
+        p=Paragraph(body,st);_,h=p.wrap(width,1000)
+        if max_height is None or h<=max_height:
+            break
+        if strict:
+            if size <= 8.0:
+                raise ValueError('Testo troppo lungo per il riquadro: accorciare la sintesi prima di pubblicare.')
+            size-=.15; leading-=.15
+        else:
+            words=body.split()
+            while words:
+                words=words[:-1];p=Paragraph(' '.join(words)+'…',st);_,h=p.wrap(width,1000)
+                if h<=max_height:break
+            break
     p.drawOn(c,x,top-h);return top-h
 def label(x,y,s):text(x,y,s.upper(),8.1,'SerifB',burg)
-def story(x,top,width,k,small=False):
+def story(x,top,width,k,small=False,bottom=None):
     item=items[k]
     title_size=12.4 if small else 14.4
     body_size=8.5 if small else 9.0
-    title_bottom=paragraph(x,top,width,item['title'],title_size,title_size+1.0,'SerifB',max_height=45 if not small else 42)
-    body=item['description'] or ('Fonte: '+item['source']+'. Consulta l’articolo originale per l’approfondimento.')
-    body_bottom=paragraph(x,title_bottom-5,width,body,body_size,body_size+1.8,max_height=68 if not small else 75)
+    title_bottom=paragraph(x,top,width,item['title'],title_size,title_size+1.0,'SerifB',max_height=42,strict=True)
+    if bottom is None: bottom=top-(116 if small else 124)
+    body_bottom=paragraph(x,title_bottom-5,width,item['description'],body_size,body_size+1.5,
+        max_height=title_bottom-5-bottom-12,strict=True)
+    text(x,body_bottom-10,item['source'],6.8,'SerifI',muted)
+    c.linkURL(item['url'],(x,bottom,x+width,top),relative=0)
     return body_bottom
 
 # Testata e data
@@ -168,7 +178,7 @@ label(M,Y-14,'LE ALTRE STORIE CHE MERITANO LA PRIMA PAGINA')
 # Parte centrale: due storie e poesia in colonna, Sudoku sotto le storie
 G=14;tw=(CW-2*G)/3; xs=[M,M+tw+G,M+2*(tw+G)];T=Y-27
 label(xs[0],T,'LA BUONA NOTIZIA');label(xs[1],T,'VOCI DAL TERRITORIO')
-story(xs[0],T-7,tw,'buona',True);story(xs[1],T-7,tw,'marche',True)
+story(xs[0],T-7,tw,'buona',True,bottom=T-119);story(xs[1],T-7,tw,'marche',True,bottom=T-119)
 # Poesia completa, compatta in riquadro
 px=xs[2]-5;pw=tw+10;poem_top=T+9;poem_h=213
 c.setFillColor(pale);c.roundRect(px,poem_top-poem_h,pw,poem_h,5,fill=1,stroke=0)
@@ -199,8 +209,9 @@ line(M+CW*.62,B-18,M+CW*.62,B-62,HexColor('#c7bdb1'),.5)
 paragraph(M+CW*.66,B-21,CW*.34,'Un invito: leggere con curiosità, discutere con rispetto, cambiare idea quando servono nuovi fatti.',8.8,10.4,max_height=43)
 B2=H-640;line(M,B2,W-M,B2,burg,.65)
 label(M,B2-14,'CULTURA, IDEE, SCOPERTE')
-story(M,B2-22,half,'cultura',True)
-paragraph(x2,B2-22,half,'La lettura del giorno: scegliere una notizia, cercarne la fonte originale e distinguere i fatti dalle opinioni. È un piccolo esercizio di libertà.',9.2,11.2,max_height=65)
+paragraph(M,B2-24,half,items['cultura']['title'],14.0,15.2,'SerifB',max_height=49,strict=True)
+text(M,B2-76,items['cultura']['source'],7.0,'SerifI',muted)
+paragraph(x2,B2-22,half,items['cultura']['description'],8.8,10.4,max_height=62,strict=True)
 # Psicologia prima delle fonti
 P=H-727;line(M,P,W-M,P,burg,1.0)
 label(M,P-15,'LA MENTE IN POCHE RIGHE')
@@ -210,7 +221,7 @@ paragraph(M,P-35,CW,psych[1],8.8,10.2,'Sans',max_height=28)
 F=49;line(M,F,W-M,F,HexColor('#b5a99a'),.5)
 sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]))
 paragraph(M,F-5,CW,'FONTI: '+(sources or 'Feed non disponibili: controllare i link sul sito'),7.1,8.2,max_height=18,color=muted)
-text(M,14,'Notizie: titoli e brevi estratti da feed pubblici · Poesia integrale di pubblico dominio',7.1,'SerifI',muted)
+text(M,14,'Notizie: sintesi originali con fonti verificate · Poesia integrale di pubblico dominio',7.1,'SerifI',muted)
 c.showPage();c.save()
 # JPEG direttamente stampabile dalla Canon; A4 150 dpi (1240 x 1754)
 pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
@@ -218,7 +229,7 @@ pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
 pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
     json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
-links=''.join('<li><b>'+html.escape(k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')</li>' for k,v in items.items() if v['url'])
-page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><a href="giornale.jpg"><img src="giornale.jpg" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf">Scarica il giornale PDF</a> · <a href="giornale.jpg">JPEG per la Canon</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>La selezione dei titoli è automatica: consultare sempre gli articoli originali per il contesto e le verifiche.</p></body></html>'''
+links=''.join('<li><b>'+html.escape(k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
+page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><a href="giornale.jpg"><img src="giornale.jpg" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf">Scarica il giornale PDF</a> · <a href="giornale.jpg">JPEG per la Canon</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
 with open(os.path.join(ROOT,'index.html'),'w',encoding='utf8') as f:f.write(page)
 print('Edizione generata:',day,os.path.getsize(os.path.join(ROOT,'giornale.jpg')),'byte')

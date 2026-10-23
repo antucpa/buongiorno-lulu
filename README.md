@@ -1,9 +1,11 @@
 # Buongiorno Lulù
 
-Quotidiano personale A4 con grafica originale conservata in genera.py e riferimento ESEMPIO_GRAFICA_APPROVATA.pdf.
+Quotidiano personale A4: https://antucpa.github.io/buongiorno-lulu/
 
-Il workflow .github/workflows/quotidiano.yml genera PDF, JPEG, pagina web e dati dell'edizione. Parte alle 04:17, 05:17 e 06:17 UTC ogni giorno (06:17, 07:17, 08:17 con ora legale italiana; 05:17, 06:17, 07:17 con ora solare), oltre che alle modifiche del generatore e su richiesta manuale. GitHub può ritardare i job programmati.
+## Generazione quotidiana
 
-Sito: https://antucpa.github.io/buongiorno-lulu/
+L'automazione ChatGPT «Prepara Buongiorno Lulù» ricerca e sintetizza le notizie ogni mattina nella fascia delle 06:00 italiane e aggiorna contenuti.json tramite il collegamento GitHub autorizzato. Questo avvia il workflow quotidiano.yml, che genera e pubblica PDF, JPEG e pagina web. Non servono chiavi API. Gli orari di esecuzione e pubblicazione possono variare.
 
-L'automazione usa i feed pubblici già previsti dal generatore e non richiede chiavi API. Se tutti i feed falliscono, il workflow si ferma prima di pubblicare per preservare l'ultima edizione. Le fonti originali sono consultabili sul sito. La stampa ESP32 richiede il dispositivo e relativo sketch, non inclusi qui.
+Il workflow può essere avviato manualmente ed esegue controlli aggiuntivi alle 04:17, 05:17 e 06:17 UTC. Se i contenuti odierni non sono ancora pronti, salta la generazione e conserva l'edizione precedente. Le cinque rubriche devono avere testi completi, fonti e date recenti. Nessun titolo RSS viene pubblicato come articolo. La verifica del PDF impedisce tagli dei testi.
+
+La grafica originale è mantenuta in genera.py; ESEMPIO_GRAFICA_APPROVATA.pdf resta il riferimento. Le istruzioni editoriali sono in REDAZIONE.md. Le sintesi sono preparate con assistenza AI: le fonti dirette consentono verifica e approfondimenti. La stampa ESP32 richiede dispositivo e relativo sketch.
