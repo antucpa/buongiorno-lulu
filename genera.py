@@ -344,9 +344,9 @@ pix=pdf[0].get_pixmap(matrix=fitz.Matrix(300/72,300/72),alpha=False)
 # JPEG baseline RGB, senza scansioni progressive, per il decoder della stampante.
 from PIL import Image
 image=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
-for jpeg_quality in (90,85,80):
+for jpeg_quality in (94,92,90,85,80):
     image.save(os.path.join(ROOT,'giornale.jpg'),format='JPEG',quality=jpeg_quality,
-               progressive=False,optimize=False,subsampling=0,dpi=(300,300))
+               progressive=False,optimize=True,subsampling=0,dpi=(300,300))
     if os.path.getsize(os.path.join(ROOT,'giornale.jpg'))<=1400000:
         break
 else:
