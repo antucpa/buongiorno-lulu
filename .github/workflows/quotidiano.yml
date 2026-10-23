@@ -82,6 +82,9 @@ jobs:
           for key, item in edition['notizie'].items():
               assert item['url'] and len(item['description'].split()) >= 32
               assert ''.join(item['description'].split()) in text, key + ': testo tagliato nel PDF'
+          book = edition['libro']
+          for field in ('titolo', 'autore', 'consiglio'):
+              assert ''.join(book[field].split()) in text, 'Libro: ' + field + ' tagliato'
           weather = edition['meteo']
           assert weather['data'] == edition['data'] and weather['localita'] == 'Macerata'
           assert ''.join(weather['condizioni'].split()) in text

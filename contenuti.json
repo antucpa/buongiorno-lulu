@@ -50,5 +50,19 @@
     "max_c": 20,
     "source": "Meteomi",
     "url": "https://www.meteomi.com/europe/italy/the-marches/provincia-di-macerata/macerata/october"
-  }
+  },
+  "libro": {
+    "titolo": "Le finestre di fronte",
+    "autore": "Georges Simenon",
+    "consiglio": "Un console turco, una città sul Mar Nero e la sensazione di essere osservato. Da leggere per la tensione discreta e per come Simenon trasforma il sospetto in atmosfera.",
+    "source": "Adelphi",
+    "url": "https://www.adelphi.it/libro/9788845906305"
+  },
+  "libri_proposti": [
+    {
+      "titolo": "Le finestre di fronte",
+      "autore": "Georges Simenon",
+      "data": "2026-10-23"
+    }
+  ]
 }

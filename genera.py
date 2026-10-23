@@ -72,6 +72,15 @@ def degrees(value):
     return f'{value:g} °C'
 weather_line=f"Min {degrees(meteo['min_c'])}  ·  Max {degrees(meteo['max_c'])}"
 
+libro=edition.get('libro',{})
+for field in ('titolo','autore','consiglio','source','url'):
+    if not isinstance(libro.get(field),str) or not libro[field].strip():
+        raise ValueError(f'Consiglio di lettura: campo {field} mancante.')
+if len(libro['titolo'])>55 or len(libro['autore'])>55 or not 20<=len(libro['consiglio'].split())<=34:
+    raise ValueError('Consiglio di lettura troppo lungo o incompleto.')
+if not libro['url'].startswith('https://'):
+    raise ValueError('Consiglio di lettura: fonte non valida.')
+
 POEMS=[('San Martino','Giosuè Carducci',"""La nebbia a gl’irti colli
 piovigginando sale,
 e sotto il maestrale
@@ -249,13 +258,13 @@ verses=poem[2].splitlines(); yy=T-43
 for v in verses:
     if v: text(xs[2]+3,yy,v,8.2,'SerifI')
     yy-=8.4 if v else 3.2
-# Sudoku: titolo, consegna e griglia allineati al centro del riquadro.
-sudoku_mid=M+(2*tw+G)/2
+# Sudoku a sinistra; consiglio di lettura nella colonna a destra.
+sudoku_mid=xs[0]+tw/2
 cell=8.7;sx=sudoku_mid-9*cell/2;sy=T-138
 c.setFillColor(burg);c.setFont('SerifB',8.1)
-c.drawCentredString(sudoku_mid,T-121,'IL SUDOKU DEL CAFFÈ')
+c.drawCentredString(sudoku_mid,T-121,'SUDOKU')
 c.setFillColor(muted);c.setFont('SerifI',7.8)
-c.drawCentredString(sudoku_mid,T-132,'Da 1 a 9 in ogni riga, colonna e riquadro, senza ripetizioni.')
+c.drawCentredString(sudoku_mid,T-132,'Da 1 a 9, senza ripetizioni.')
 for r in range(9):
     for co in range(9):
         n=puzzle[r*9+co]
@@ -266,6 +275,13 @@ for i in range(10):
     c.setLineWidth(1.25 if i%3==0 else .3);c.setStrokeColor(ink)
     c.line(sx+i*cell,sy,sx+i*cell,sy-9*cell)
     c.line(sx,sy-i*cell,sx+9*cell,sy-i*cell)
+# Consiglio di lettura breve, senza rivelare il finale.
+bx=xs[1]
+label(bx,T-121,'DA LEGGERE')
+book_y=paragraph(bx,T-132,tw,libro['titolo'],13,14,'SerifB',max_height=28,strict=True)
+book_y=paragraph(bx,book_y-4,tw,libro['autore'],8.2,9.5,'SerifI',max_height=20,strict=True)
+paragraph(bx,book_y-5,tw,libro['consiglio'],8.4,10.0,max_height=book_y-5-(T-216),strict=True)
+c.linkURL(libro['url'],(bx,T-217,bx+tw,T-112),relative=0)
 # Terza fascia
 B=H-566;line(M,B,W-M,B,burg,.9)
 label(M,B-14,'IL TACCUINO DI LULÙ')
@@ -284,7 +300,7 @@ text(M,P-30,psych[0],10.4,'SansB')
 paragraph(M,P-35,CW,psych[1],8.8,10.2,'Sans',max_height=28)
 # Fonti sempre ultime
 F=49;line(M,F,W-M,F,HexColor('#b5a99a'),.5)
-sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]+[meteo['source']]))
+sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]+[meteo['source'],libro['source']]))
 paragraph(M,F-5,CW,'FONTI: '+(sources or 'Feed non disponibili: controllare i link sul sito'),7.1,8.2,max_height=18,color=muted)
 text(M,14,'Notizie: sintesi originali con fonti verificate · Poesia integrale di pubblico dominio',7.1,'SerifI',muted)
 c.showPage();c.save()
@@ -293,9 +309,9 @@ pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
 pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
 pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
-    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
+    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
 asset_version=now.strftime('%Y%m%d%H%M%S')
 links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
-page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
+page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Da leggere</h2><h3>{html.escape(libro['titolo'])}</h3><p>{html.escape(libro['autore'])}</p><p>{html.escape(libro['consiglio'])}</p><p><a href="{html.escape(libro['url'],quote=True)}">Scheda del libro: {html.escape(libro['source'])}</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
 with open(os.path.join(ROOT,'index.html'),'w',encoding='utf8') as f:f.write(page)
 print('Edizione generata:',day,os.path.getsize(os.path.join(ROOT,'giornale.jpg')),'byte')

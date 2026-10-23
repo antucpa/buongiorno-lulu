@@ -15,3 +15,7 @@ Una sola notizia locale: esclusivamente la città di Macerata nella chiave tecni
 ## Meteo quotidiano di Macerata
 
 Consultare le previsioni odierne per Macerata città nelle Marche. Aggiungere meteo: data odierna YYYY-MM-DD, localita Macerata, condizioni (massimo 90 caratteri), min_c e max_c numerici in Celsius per l'intera giornata, source e url HTTPS realmente consultato. Non confondere Macerata con Macerata Campania o Feltria. Non usare la temperatura attuale come minima/massima. Se una fonte manca, cercarne un'altra. Il generatore verifica data, località, temperature e fonte prima di stampare il riquadro meteo.
+
+## Da leggere
+
+Aggiungere il blocco libro: titolo e autore entro 55 caratteri ciascuno; consiglio originale di 24–32 parole (limite 20–34), senza spoiler, che spieghi il valore della lettura; source e url HTTPS verificato presso l'editore o un catalogo autorevole. Non copiare la quarta di copertina. Alternare autori italiani e stranieri, gialli, romanzi e classici, senza limitarsi a nuove uscite o temi locali. Conservare libri_proposti (fino a 90 elementi con titolo, autore, data), evitare ripetizioni e aggiungere la scelta odierna. La rubrica occupa la colonna accanto al Sudoku, sotto la notizia di Macerata. Il workflow verifica che titolo, autore e consiglio siano leggibili integralmente nel PDF.
