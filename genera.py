@@ -239,7 +239,7 @@ label(M,Y-14,'LE ALTRE STORIE CHE MERITANO LA PRIMA PAGINA')
 # Parte centrale: due storie e poesia in colonna, Sudoku sotto le storie
 G=14;tw=(CW-2*G)/3; xs=[M,M+tw+G,M+2*(tw+G)];T=Y-27
 label(xs[0],T,'LA BUONA NOTIZIA');label(xs[1],T,'MACERATA')
-story(xs[0],T-7,tw,'buona',True,bottom=T-119);story(xs[1],T-7,tw,'marche',True,bottom=T-119)
+story(xs[0],T-7,tw,'buona',True,bottom=T-109);story(xs[1],T-7,tw,'marche',True,bottom=T-109)
 # Poesia completa, compatta in riquadro
 px=xs[2]-5;pw=tw+10;poem_top=T+9;poem_h=213
 c.setFillColor(pale);c.roundRect(px,poem_top-poem_h,pw,poem_h,5,fill=1,stroke=0)
@@ -249,15 +249,19 @@ verses=poem[2].splitlines(); yy=T-43
 for v in verses:
     if v: text(xs[2]+3,yy,v,8.2,'SerifI')
     yy-=8.4 if v else 3.2
-# Sudoku
-sx=xs[1]+5;sy=T-125;cell=9.2
-label(xs[0],T-130,'IL SUDOKU DEL CAFFÈ')
-text(xs[0],T-144,'Livello medio · Soluzione online',8,'SerifI',muted)
-paragraph(xs[0],T-152,tw-12,'Ogni riga, colonna e riquadro contiene i numeri da 1 a 9.',8.1,9.8)
+# Sudoku: titolo, consegna e griglia allineati al centro del riquadro.
+sudoku_mid=M+(2*tw+G)/2
+cell=8.7;sx=sudoku_mid-9*cell/2;sy=T-138
+c.setFillColor(burg);c.setFont('SerifB',8.1)
+c.drawCentredString(sudoku_mid,T-121,'IL SUDOKU DEL CAFFÈ')
+c.setFillColor(muted);c.setFont('SerifI',7.8)
+c.drawCentredString(sudoku_mid,T-132,'Da 1 a 9 in ogni riga, colonna e riquadro, senza ripetizioni.')
 for r in range(9):
     for co in range(9):
         n=puzzle[r*9+co]
-        if n:text(sx+co*cell+3,sy-r*cell-7,str(n),8,'SerifB')
+        if n:
+            c.setFillColor(ink);c.setFont('SerifB',7.8)
+            c.drawCentredString(sx+(co+.5)*cell,sy-r*cell-6.7,str(n))
 for i in range(10):
     c.setLineWidth(1.25 if i%3==0 else .3);c.setStrokeColor(ink)
     c.line(sx+i*cell,sy,sx+i*cell,sy-9*cell)
