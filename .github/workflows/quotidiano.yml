@@ -1,0 +1,77 @@
+name: Buongiorno Lulu - giornale quotidiano
+on:
+  push:
+    branches: [main]
+    paths:
+      - genera.py
+      - requirements.txt
+      - .github/workflows/quotidiano.yml
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4,5,6 * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: buongiorno-lulu
+  cancel-in-progress: false
+jobs:
+  giornale:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Installa caratteri e dipendenze
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-liberation
+          python -m pip install -r requirements.txt
+          FONT_FILE=$(fc-match -f '%{file}' 'Liberation Serif')
+          echo "LULU_FONTS=$(dirname "$FONT_FILE")" >> "$GITHUB_ENV"
+      - name: Genera il quotidiano
+        run: python genera.py
+      - name: Verifica i file
+        run: |
+          python - <<'PY'
+          import json, fitz
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          from pathlib import Path
+          edition = json.loads(Path('edizione.json').read_text())
+          assert edition['data'] == datetime.now(ZoneInfo('Europe/Rome')).date().isoformat()
+          with fitz.open('giornale.pdf') as pdf:
+              assert len(pdf) == 1
+              assert 'Buongiorno' in pdf[0].get_text()
+          for name in ('index.html', 'giornale.jpg', 'giornale.pdf'):
+              assert Path(name).stat().st_size > 100
+          if not any(item['url'] for item in edition['notizie'].values()):
+              raise RuntimeError('Tutti i feed non disponibili: conservata la precedente edizione pubblicata.')
+          PY
+      - name: Salva edizione nel repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add giornale.pdf giornale.jpg edizione.json index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Aggiorna edizione quotidiana"
+            git push
+          fi
+      - name: Prepara sito
+        run: |
+          mkdir -p _site
+          cp index.html giornale.pdf giornale.jpg edizione.json _site/
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Pubblica giornale
+        id: deployment
+        uses: actions/deploy-pages@v4
