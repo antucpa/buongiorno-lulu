@@ -82,6 +82,11 @@ jobs:
           for key, item in edition['notizie'].items():
               assert item['url'] and len(item['description'].split()) >= 32
               assert ''.join(item['description'].split()) in text, key + ': testo tagliato nel PDF'
+          weather = edition['meteo']
+          assert weather['data'] == edition['data'] and weather['localita'] == 'Macerata'
+          assert ''.join(weather['condizioni'].split()) in text
+          assert 'Min' + format(weather['min_c'], 'g') + '°C' in text
+          assert 'Max' + format(weather['max_c'], 'g') + '°C' in text
           PY
       - name: Salva edizione nel repository
         run: |

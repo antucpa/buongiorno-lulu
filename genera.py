@@ -46,10 +46,31 @@ for key,item in items.items():
     if len(item['description'].split()) < minimum:
         raise ValueError(f'{key}: testo troppo breve.')
     age=(now.date()-datetime.strptime(item['published_at'],'%Y-%m-%d').date()).days
-    if age < 0 or age > (7 if key=='buona' else 3 if key in ('marche','cultura') else 1):
+    if age < 0 or age > (7 if key in ('buona','cultura') else 3 if key=='marche' else 1):
         raise ValueError(f'{key}: fonte non recente.')
     if any(s in item['description'].lower() for s in ('consulta l’articolo','notizia non disponibile','fonte non raggiungibile')):
         raise ValueError(f'{key}: testo segnaposto vietato.')
+
+
+    if item.get('ambito') not in ({'macerata'} if key=='marche' else {'nazionale','internazionale'}):
+        raise ValueError(f'{key}: ammessa una sola notizia locale, quella di Macerata.')
+meteo=edition.get('meteo',{})
+if meteo.get('data')!=day or meteo.get('localita')!='Macerata':
+    raise ValueError('Servono le previsioni odierne per Macerata.')
+for field in ('condizioni','source','url'):
+    if not isinstance(meteo.get(field),str) or not meteo[field].strip():
+        raise ValueError(f'Meteo: campo {field} mancante.')
+if not meteo['url'].startswith('https://'):
+    raise ValueError('Meteo: collegamento alla fonte non valido.')
+for field in ('min_c','max_c'):
+    value=meteo.get(field)
+    if isinstance(value,bool) or not isinstance(value,(int,float)) or not -60<=value<=60:
+        raise ValueError('Temperature meteo non valide.')
+if meteo['min_c']>meteo['max_c'] or len(meteo['condizioni'])>90:
+    raise ValueError('Previsione meteo non valida o troppo lunga.')
+def degrees(value):
+    return f'{value:g} °C'
+weather_line=f"Min {degrees(meteo['min_c'])}  ·  Max {degrees(meteo['max_c'])}"
 
 POEMS=[('San Martino','Giosuè Carducci',"""La nebbia a gl’irti colli
 piovigginando sale,
@@ -177,7 +198,7 @@ Y=H-316;line(M,Y,W-M,Y,burg,1.0)
 label(M,Y-14,'LE ALTRE STORIE CHE MERITANO LA PRIMA PAGINA')
 # Parte centrale: due storie e poesia in colonna, Sudoku sotto le storie
 G=14;tw=(CW-2*G)/3; xs=[M,M+tw+G,M+2*(tw+G)];T=Y-27
-label(xs[0],T,'LA BUONA NOTIZIA');label(xs[1],T,'VOCI DAL TERRITORIO')
+label(xs[0],T,'LA BUONA NOTIZIA');label(xs[1],T,'MACERATA')
 story(xs[0],T-7,tw,'buona',True,bottom=T-119);story(xs[1],T-7,tw,'marche',True,bottom=T-119)
 # Poesia completa, compatta in riquadro
 px=xs[2]-5;pw=tw+10;poem_top=T+9;poem_h=213
@@ -206,7 +227,12 @@ B=H-566;line(M,B,W-M,B,burg,.9)
 label(M,B-14,'IL TACCUINO DI LULÙ')
 paragraph(M,B-21,CW*.57,'Una domanda da portare con sé: che cosa abbiamo imparato oggi che ieri non sapevamo?',9.1,11.1,max_height=34)
 line(M+CW*.62,B-18,M+CW*.62,B-62,HexColor('#c7bdb1'),.5)
-paragraph(M+CW*.66,B-21,CW*.34,'Un invito: leggere con curiosità, discutere con rispetto, cambiare idea quando servono nuovi fatti.',8.8,10.4,max_height=43)
+wx=M+CW*.66
+label(wx,B-14,'METEO · MACERATA')
+paragraph(wx,B-23,CW*.34,meteo['condizioni'],8.8,10.4,max_height=27,strict=True)
+text(wx,B-58,weather_line,8.3,'SansB')
+text(wx,B-68,'Previsioni · '+meteo['source'],6.8,'SerifI',muted)
+c.linkURL(meteo['url'],(wx,B-70,W-M,B-5),relative=0)
 B2=H-640;line(M,B2,W-M,B2,burg,.65)
 label(M,B2-14,'CULTURA, IDEE, SCOPERTE')
 paragraph(M,B2-24,half,items['cultura']['title'],14.0,15.2,'SerifB',max_height=49,strict=True)
@@ -228,8 +254,8 @@ pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
 pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
 pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
-    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
-links=''.join('<li><b>'+html.escape(k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
-page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><a href="giornale.jpg"><img src="giornale.jpg" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf">Scarica il giornale PDF</a> · <a href="giornale.jpg">JPEG per la Canon</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
+    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
+links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
+page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><a href="giornale.jpg"><img src="giornale.jpg" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf">Scarica il giornale PDF</a> · <a href="giornale.jpg">JPEG per la Canon</a></p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
 with open(os.path.join(ROOT,'index.html'),'w',encoding='utf8') as f:f.write(page)
 print('Edizione generata:',day,os.path.getsize(os.path.join(ROOT,'giornale.jpg')),'byte')
