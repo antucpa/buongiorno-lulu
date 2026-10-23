@@ -1,36 +1,41 @@
 {
   "data": "2026-10-23",
-  "generata_alle": "2026-10-23T12:34:50.525912+02:00",
+  "generata_alle": "2026-10-23T12:41:33.779689+02:00",
   "notizie": {
     "italia": {
-      "title": "Le prime pagine dei quotidiani di oggi 23 ottobre: la rassegna stampa",
-      "source": "Sky TG24",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZTBINHNWNmVpMmRiUmlhQkFuaTliYjgwc0hOZHZIbTZXbmVoUDZrcHphM1l0N1hfWjczRk5ZZWdjMWFIRjRzd2YtSi1ZY2RLS1lYMnNhd2cweDdqNGZhQzE1OEgxYVVhb1dsd01NODRnSnotZzNmYjN3U3NqNld6WlFkalE?oc=5",
-      "description": ""
+      "title": "Tir, ripartono le consegne dopo i blocchi",
+      "description": "Dopo la protesta contro il caro gasolio, nella notte sono stati rimossi i presidi autostradali in Campania, compreso quello al porto di Napoli. Riprendono i rifornimenti, ma distributori e supermercati richiedono tempo per tornare alla normalità. Gli autotrasportatori attendono risposte sui costi del carburante e sulle condizioni di lavoro: il prossimo confronto con il ministro dei Trasporti è fissato al 27 ottobre.",
+      "source": "RaiNews",
+      "url": "https://www.rainews.it/maratona/2026/10/emergenza-sud-carburanti-blocchi-tir-dl-misure-sostegno-protesta-autotrasporto-agricoltura-disagi-rete-nazionale-34e5c228-5522-45d1-8882-60f103767510.html",
+      "published_at": "2026-10-23"
     },
     "mondo": {
-      "title": "4 anni di Governo: gli italiani nel mondo nella sintesi di Palazzo Chigi - Aise.it",
-      "source": "Aise.it - Agenzia Internazionale Stampa Estero",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPb0gxRTJkaFd4eGdjenBrZVluaUNpSkJNLTBqdmZwTi1GTFBBV1RYTmE1UDh2RFFXeVFFaDI2RFZTQjI2bGh1MWYtR0NhaDI4UWhCakJwUi1EbWp1Qnh5S3l1ZXBGd2RoaXlHU3ZGNVNHUGk2NjFJZ0p1VWRnQVRDajhKUW9Va2xlTTlfeVpWLXJXU2hRTmZTZWp0MjJnMktqM3VCOWJ2WXNnaHR4dlpr?oc=5",
-      "description": ""
+      "title": "Ucraina, nuovi raid sulla rete elettrica",
+      "description": "Secondo il ministero dell’Energia ucraino, gli attacchi russi della notte hanno colpito infrastrutture in sei regioni e lasciato oltre mezzo milione di persone senza corrente. Una centrale della società Dtek ha interrotto la produzione dopo gravi danni. Sul piano diplomatico Mosca e Kiev si dicono disponibili a colloqui con gli Stati Uniti, ma le rivendicazioni russe sul Donbass continuano a dividere le parti.",
+      "source": "RaiNews",
+      "url": "https://www.rainews.it/maratona/2026/10/ucraina-guerra-putin-mosca-non-prepara-guerra-a-europa-ma-ucraina-orientale-e-russa-79a81218-6dbd-43fc-a9cd-460841cb2543.html",
+      "published_at": "2026-10-23"
     },
     "buona": {
-      "title": "Notizia non disponibile",
-      "source": "",
-      "url": "",
-      "description": "La fonte non è raggiungibile al momento della pubblicazione."
+      "title": "La ricerca alimentare incontra il pubblico",
+      "description": "Al Maker Faire di Roma, dal 23 al 25 ottobre, il CREA presenta una macchina che riunisce le fasi di maltazione e prototipi di cibi vegetali stampati in 3D. I ricercatori mostrano ai visitatori come funzionano queste tecnologie sperimentali.",
+      "source": "CREA",
+      "url": "https://www.crea.gov.it/web/ingegneria-e-trasformazioni-agroalimentari/-/dal-chicco-al-piatto-scopri-il-futuro-dei-cereali-con-il-crea-al-maker-faire-2026",
+      "published_at": "2026-10-22"
     },
     "marche": {
-      "title": "Dalle aziende storiche ai colletti bianchi: chi sono i 51 indagati tra politica, affari e clan nella maxi inchiesta sulla ricostruzione",
-      "source": "Corriere Adriatico",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQY0NyWjR5MkR1czBiUVFVNVMzaFhGT29Gb3MwV0hKRy03eHdzelZBY2ZZM1E1cFVXTnpxM3l3NDU1eUFzLXoxM19QbzFTeVpFVnJrVzJVbTVqQlBzUGJXSzR3YllsWG9Ea3podHl6TWpBc1gyYWpRSG5nbDMtWlhDT0MtTmVhTWRJbi1xRXJpSzVzeWZyVmVCSGZTclM2czhhR2MzcGR3WDEySDgzeWF3MThvNVVadnBsSS1OcVNwbW1abTd0UVdpYjFQM1hTbi1LekJaU29IU3JKMEllamfSAeMBQVVfeXFMTjRjTmczSS1VdzhjcWhyQzRfV1NqcmlHNTdjYjVuSlZtNE9aQmhYbm95OVhtTjNiLW1UaG5jalBtSDIxR3JVVmpMOHZVd0diWk9KLXN4WFhhQ3pFcE5MZUhjakVsc1daT29qU1UxeXlpbFdtZm00RFJxaW5BM3pVa1FfeGFQZHUzbEpmSmlJOVhTeEhtcUdLMmQ3MkFqNk93LXVYRzM5WHBEa21fdkVWSTFkOF9KcHR3bVd5cnZTMWVWc3VSTnEyWEpvTXo5T0ZrOXl4MmNveHRZUWc4aUM0ZEYybnc?oc=5",
-      "description": ""
+      "title": "Macerata Jazz, stasera Simona Molinari",
+      "description": "Alle 21.15, al Teatro Lauro Rossi, Simona Molinari apre Macerata Jazz Winter con «La donna è mobile» e una band femminile. La serata comincia alle 19.30 al Centrale con Naima e prosegue lì alle 23.30 con una jam session.",
+      "source": "Comune di Macerata",
+      "url": "https://www.comune.macerata.it/novita/simona-molinari-inaugura-macerata-jazz-winter/",
+      "published_at": "2026-10-22"
     },
     "cultura": {
-      "title": "Monopoli – Prospero Young 2026, quattro giorni tra libri, cinema e spettacolo",
-      "source": "PugliaLive",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNU1VxMXVPQ1h5b0dTQ1ZheGJMLS1mc1pSQWVTOG5zX0xuWnpKbU5Tcno2b3BUcERRdC1EcTNZVXpCVjNYdFVObzJWTXBZbjlGY2Etelp1U21JYUwyZGtrYWx6a2JMMnR6ZnktSHM0Mi1fUGxhdjNJUnVoa09oeHpmME5mRUJ3Z0p6SDhpRGtGVWRIZG1DQ3NBNmNPVGtXM1U5dGNF?oc=5",
-      "description": ""
+      "title": "Alberto Sordi, il cinema torna a casa",
+      "description": "La Casa Museo Alberto Sordi partecipa alla Festa del Cinema di Roma con una rassegna dedicata all’attore. Oggi, 23 ottobre, alle 18 è in programma «Il medico della mutua». Domani, alla stessa ora, sarà proiettato «Fumo di Londra». Gli appuntamenti si tengono nella sede di via Claudio Marcello.",
+      "source": "Fondazione Museo Alberto Sordi",
+      "url": "https://fondazionemuseoalbertosordi.org/event-item/festa-del-cinema-di-roma/",
+      "published_at": "2026-10-23"
     }
   },
   "sudoku": [
