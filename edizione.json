@@ -1,6 +1,6 @@
 {
   "data": "2026-10-23",
-  "generata_alle": "2026-10-23T13:06:35.991510+02:00",
+  "generata_alle": "2026-10-23T13:11:13.589464+02:00",
   "notizie": {
     "italia": {
       "title": "Tir, ripartono le consegne dopo i blocchi",
@@ -64,6 +64,16 @@
     "consiglio": "Parti da piazza Tartini, nata sull’antico porto, e cerca la Casa Veneziana tra i palazzi. Una meta da scoprire a piedi, seguendo le tracce del compositore Giuseppe Tartini.",
     "source": "Turismo Portorož & Piran",
     "url": "https://www.portoroz.si/en/explore-portoroz-piran/explore-piran/culture-and-history/obj/13942-tartini-square/"
+  },
+  "aforisma": {
+    "testo": "Le persone non sono ridicole se non quando vogliono parere o essere ciò che non sono.",
+    "autore": "Giacomo Leopardi",
+    "opera": "Pensieri, XCIX",
+    "source": "Wikiquote",
+    "url": "https://it.wikiquote.org/wiki/Giacomo_Leopardi#Pensieri"
+  },
+  "taccuino": {
+    "pensiero": "Una domanda da portare con sé: che cosa abbiamo imparato oggi che ieri non sapevamo?"
   },
   "sudoku": [
     0,
