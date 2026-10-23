@@ -82,6 +82,10 @@ jobs:
           for key, item in edition['notizie'].items():
               assert item['url'] and len(item['description'].split()) >= 32
               assert ''.join(item['description'].split()) in text, key + ': testo tagliato nel PDF'
+          quote = edition['aforisma']
+          for field in ('testo', 'autore', 'opera'):
+              assert ''.join(quote[field].split()) in text, 'Aforisma: ' + field + ' tagliato'
+          assert ''.join(edition['taccuino']['pensiero'].split()) in text
           travel = edition['viaggio']
           for field in ('meta', 'consiglio'):
               assert ''.join(travel[field].split()) in text, 'Viaggio: ' + field + ' tagliato'

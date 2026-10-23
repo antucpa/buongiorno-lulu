@@ -76,5 +76,22 @@
       "meta": "Pirano, Slovenia",
       "data": "2026-10-23"
     }
-  ]
+  ],
+  "aforisma": {
+    "testo": "Le persone non sono ridicole se non quando vogliono parere o essere ciò che non sono.",
+    "autore": "Giacomo Leopardi",
+    "opera": "Pensieri, XCIX",
+    "source": "Wikiquote",
+    "url": "https://it.wikiquote.org/wiki/Giacomo_Leopardi#Pensieri"
+  },
+  "aforismi_proposti": [
+    {
+      "testo": "Le persone non sono ridicole se non quando vogliono parere o essere ciò che non sono.",
+      "autore": "Giacomo Leopardi",
+      "data": "2026-10-23"
+    }
+  ],
+  "taccuino": {
+    "pensiero": "Una domanda da portare con sé: che cosa abbiamo imparato oggi che ieri non sapevamo?"
+  }
 }
