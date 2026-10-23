@@ -1,6 +1,6 @@
 {
   "data": "2026-10-23",
-  "generata_alle": "2026-10-23T13:01:22.174658+02:00",
+  "generata_alle": "2026-10-23T13:06:35.991510+02:00",
   "notizie": {
     "italia": {
       "title": "Tir, ripartono le consegne dopo i blocchi",
@@ -58,6 +58,12 @@
     "consiglio": "Un console turco, una città sul Mar Nero e la sensazione di essere osservato. Da leggere per la tensione discreta e per come Simenon trasforma il sospetto in atmosfera.",
     "source": "Adelphi",
     "url": "https://www.adelphi.it/libro/9788845906305"
+  },
+  "viaggio": {
+    "meta": "Pirano, Slovenia",
+    "consiglio": "Parti da piazza Tartini, nata sull’antico porto, e cerca la Casa Veneziana tra i palazzi. Una meta da scoprire a piedi, seguendo le tracce del compositore Giuseppe Tartini.",
+    "source": "Turismo Portorož & Piran",
+    "url": "https://www.portoroz.si/en/explore-portoroz-piran/explore-piran/culture-and-history/obj/13942-tartini-square/"
   },
   "sudoku": [
     0,
