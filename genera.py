@@ -341,7 +341,14 @@ c.showPage();c.save()
 # JPEG direttamente stampabile dalla Canon; A4 150 dpi (1240 x 1754)
 pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
 pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
-pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
+# JPEG baseline RGB, senza scansioni progressive, per il decoder della stampante.
+from PIL import Image
+image=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+image.save(os.path.join(ROOT,'giornale.jpg'),format='JPEG',quality=85,
+           progressive=False,optimize=False,subsampling=2,dpi=(150,150))
+with Image.open(os.path.join(ROOT,'giornale.jpg')) as check:
+    assert check.mode=='RGB' and not check.info.get('progressive'), 'JPEG non baseline'
+    check.load()
 # Indice compatto per ESP32: data e impronta del JPEG verificabili prima dell'invio.
 with open(os.path.join(ROOT,'giornale.jpg'),'rb') as image_file:
     jpeg_data=image_file.read()
