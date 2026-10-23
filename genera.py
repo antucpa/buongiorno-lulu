@@ -81,6 +81,15 @@ if len(libro['titolo'])>55 or len(libro['autore'])>55 or not 20<=len(libro['cons
 if not libro['url'].startswith('https://'):
     raise ValueError('Consiglio di lettura: fonte non valida.')
 
+viaggio=edition.get('viaggio',{})
+for field in ('meta','consiglio','source','url'):
+    if not isinstance(viaggio.get(field),str) or not viaggio[field].strip():
+        raise ValueError(f'Idea di viaggio: campo {field} mancante.')
+if len(viaggio['meta'])>45 or not 20<=len(viaggio['consiglio'].split())<=34:
+    raise ValueError('Idea di viaggio troppo lunga o incompleta.')
+if not viaggio['url'].startswith('https://'):
+    raise ValueError('Idea di viaggio: fonte non valida.')
+
 POEMS=[('San Martino','Giosuè Carducci',"""La nebbia a gl’irti colli
 piovigginando sale,
 e sotto il maestrale
@@ -288,11 +297,21 @@ label(M,B-14,'IL TACCUINO DI LULÙ')
 paragraph(M,B-21,CW*.57,'Una domanda da portare con sé: che cosa abbiamo imparato oggi che ieri non sapevamo?',9.1,11.1,max_height=34)
 line(M+CW*.62,B-18,M+CW*.62,B-62,HexColor('#c7bdb1'),.5)
 paragraph(M+CW*.66,B-21,CW*.34,'Un invito: leggere con curiosità, discutere con rispetto, cambiare idea quando servono nuovi fatti.',8.8,10.4,max_height=43)
-B2=H-640;line(M,B2,W-M,B2,burg,.65)
-label(M,B2-14,'CULTURA, IDEE, SCOPERTE')
-paragraph(M,B2-24,half,items['cultura']['title'],14.0,15.2,'SerifB',max_height=49,strict=True)
-text(M,B2-76,items['cultura']['source'],7.0,'SerifI',muted)
-paragraph(x2,B2-22,half,items['cultura']['description'],8.8,10.4,max_height=62,strict=True)
+B2=H-632;line(M,B2,W-M,B2,burg,.65)
+culture_w=CW*.60;travel_x=M+CW*.66;travel_w=CW*.34
+label(M,B2-13,'CULTURA, IDEE, SCOPERTE')
+culture_y=paragraph(M,B2-20,culture_w,items['cultura']['title'],11.3,12.6,'SerifB',max_height=25.2,strict=True)
+paragraph(M,culture_y-3,culture_w,items['cultura']['description'],8.6,10.0,
+          max_height=culture_y-3-(H-713),strict=True)
+text(M,H-723,items['cultura']['source'],6.4,'SerifI',muted)
+c.linkURL(items['cultura']['url'],(M,H-725,M+culture_w,B2-3),relative=0)
+line(M+CW*.63,B2-18,M+CW*.63,H-718,HexColor('#c7bdb1'),.5)
+label(travel_x,B2-13,'IDEA DI VIAGGIO')
+travel_y=paragraph(travel_x,B2-20,travel_w,viaggio['meta'],11.3,12.6,'SerifB',max_height=25.2,strict=True)
+paragraph(travel_x,travel_y-3,travel_w,viaggio['consiglio'],8.5,9.8,
+          max_height=travel_y-3-(H-713),strict=True)
+paragraph(travel_x,H-716,travel_w,viaggio['source'],6.4,7.0,'SerifI',max_height=8,strict=True)
+c.linkURL(viaggio['url'],(travel_x,H-725,W-M,B2-3),relative=0)
 # Psicologia prima delle fonti
 P=H-727;line(M,P,W-M,P,burg,1.0)
 label(M,P-15,'LA MENTE IN POCHE RIGHE')
@@ -300,7 +319,7 @@ text(M,P-30,psych[0],10.4,'SansB')
 paragraph(M,P-35,CW,psych[1],8.8,10.2,'Sans',max_height=28)
 # Fonti sempre ultime
 F=49;line(M,F,W-M,F,HexColor('#b5a99a'),.5)
-sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]+[meteo['source'],libro['source']]))
+sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['source']]+[meteo['source'],libro['source'],viaggio['source']]))
 paragraph(M,F-5,CW,'FONTI: '+(sources or 'Feed non disponibili: controllare i link sul sito'),7.1,8.2,max_height=18,color=muted)
 text(M,14,'Notizie: sintesi originali con fonti verificate · Poesia integrale di pubblico dominio',7.1,'SerifI',muted)
 c.showPage();c.save()
@@ -309,9 +328,9 @@ pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
 pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
 pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
-    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
+    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'viaggio':viaggio,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
 asset_version=now.strftime('%Y%m%d%H%M%S')
 links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
-page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Da leggere</h2><h3>{html.escape(libro['titolo'])}</h3><p>{html.escape(libro['autore'])}</p><p>{html.escape(libro['consiglio'])}</p><p><a href="{html.escape(libro['url'],quote=True)}">Scheda del libro: {html.escape(libro['source'])}</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
+page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Da leggere</h2><h3>{html.escape(libro['titolo'])}</h3><p>{html.escape(libro['autore'])}</p><p>{html.escape(libro['consiglio'])}</p><p><a href="{html.escape(libro['url'],quote=True)}">Scheda del libro: {html.escape(libro['source'])}</a></p><h2>Idea di viaggio</h2><h3>{html.escape(viaggio['meta'])}</h3><p>{html.escape(viaggio['consiglio'])}</p><p><a href="{html.escape(viaggio['url'],quote=True)}">Scopri la meta: {html.escape(viaggio['source'])}</a></p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
 with open(os.path.join(ROOT,'index.html'),'w',encoding='utf8') as f:f.write(page)
 print('Edizione generata:',day,os.path.getsize(os.path.join(ROOT,'giornale.jpg')),'byte')

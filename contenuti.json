@@ -64,5 +64,17 @@
       "autore": "Georges Simenon",
       "data": "2026-10-23"
     }
+  ],
+  "viaggio": {
+    "meta": "Pirano, Slovenia",
+    "consiglio": "Parti da piazza Tartini, nata sull’antico porto, e cerca la Casa Veneziana tra i palazzi. Una meta da scoprire a piedi, seguendo le tracce del compositore Giuseppe Tartini.",
+    "source": "Turismo Portorož & Piran",
+    "url": "https://www.portoroz.si/en/explore-portoroz-piran/explore-piran/culture-and-history/obj/13942-tartini-square/"
+  },
+  "viaggi_proposti": [
+    {
+      "meta": "Pirano, Slovenia",
+      "data": "2026-10-23"
+    }
   ]
 }

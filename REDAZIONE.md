@@ -19,3 +19,7 @@ Consultare le previsioni odierne per Macerata città nelle Marche. Aggiungere me
 ## Da leggere
 
 Aggiungere il blocco libro: titolo e autore entro 55 caratteri ciascuno; consiglio originale di 24–32 parole (limite 20–34), senza spoiler, che spieghi il valore della lettura; source e url HTTPS verificato presso l'editore o un catalogo autorevole. Non copiare la quarta di copertina. Alternare autori italiani e stranieri, gialli, romanzi e classici, senza limitarsi a nuove uscite o temi locali. Conservare libri_proposti (fino a 90 elementi con titolo, autore, data), evitare ripetizioni e aggiungere la scelta odierna. La rubrica occupa la colonna accanto al Sudoku, sotto la notizia di Macerata. Il workflow verifica che titolo, autore e consiglio siano leggibili integralmente nel PDF.
+
+## Idea di viaggio
+
+Aggiungere il blocco viaggio con meta (massimo 45 caratteri, Paese/area chiari), consiglio originale di 24–30 parole (limite 20–34), source e url HTTPS verificato di un ente turistico o di un'attrazione ufficiale. Indicare uno o due spunti concreti, senza prezzi, orari o affermazioni pratiche non verificati. Alternare destinazioni italiane e straniere, arte e natura. È una proposta di viaggio, distinta dalle cinque notizie. Conservare viaggi_proposti (ultime 90 mete con data), evitare ripetizioni e aggiungere la nuova scelta. La cultura occupa la colonna sinistra con titolo piccolo sopra il testo; la proposta di viaggio occupa la colonna destra. Per la cultura preferire titoli entro 55 caratteri. Il workflow verifica l'integrità dei testi nel PDF.
