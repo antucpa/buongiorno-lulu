@@ -338,14 +338,19 @@ sources=' · '.join(dict.fromkeys([x['source'] for x in items.values() if x['sou
 paragraph(M,F-5,CW,'FONTI: '+(sources or 'Feed non disponibili: controllare i link sul sito'),7.1,8.2,max_height=18,color=muted)
 text(M,14,'Notizie: sintesi originali con fonti verificate · Poesia integrale di pubblico dominio',7.1,'SerifI',muted)
 c.showPage();c.save()
-# JPEG direttamente stampabile dalla Canon; A4 150 dpi (1240 x 1754)
+# JPEG baseline A4 a 300 dpi per testi piccoli nitidi.
 pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
-pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
+pix=pdf[0].get_pixmap(matrix=fitz.Matrix(300/72,300/72),alpha=False)
 # JPEG baseline RGB, senza scansioni progressive, per il decoder della stampante.
 from PIL import Image
 image=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
-image.save(os.path.join(ROOT,'giornale.jpg'),format='JPEG',quality=85,
-           progressive=False,optimize=False,subsampling=2,dpi=(150,150))
+for jpeg_quality in (90,85,80):
+    image.save(os.path.join(ROOT,'giornale.jpg'),format='JPEG',quality=jpeg_quality,
+               progressive=False,optimize=False,subsampling=0,dpi=(300,300))
+    if os.path.getsize(os.path.join(ROOT,'giornale.jpg'))<=1400000:
+        break
+else:
+    raise ValueError('JPEG oltre la memoria disponibile della stampante ESP32.')
 with Image.open(os.path.join(ROOT,'giornale.jpg')) as check:
     assert check.mode=='RGB' and not check.info.get('progressive'), 'JPEG non baseline'
     check.load()
