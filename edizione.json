@@ -1,42 +1,56 @@
 {
   "data": "2026-10-23",
-  "generata_alle": "2026-10-23T12:41:33.779689+02:00",
+  "generata_alle": "2026-10-23T12:47:11.165022+02:00",
   "notizie": {
     "italia": {
       "title": "Tir, ripartono le consegne dopo i blocchi",
       "description": "Dopo la protesta contro il caro gasolio, nella notte sono stati rimossi i presidi autostradali in Campania, compreso quello al porto di Napoli. Riprendono i rifornimenti, ma distributori e supermercati richiedono tempo per tornare alla normalità. Gli autotrasportatori attendono risposte sui costi del carburante e sulle condizioni di lavoro: il prossimo confronto con il ministro dei Trasporti è fissato al 27 ottobre.",
       "source": "RaiNews",
       "url": "https://www.rainews.it/maratona/2026/10/emergenza-sud-carburanti-blocchi-tir-dl-misure-sostegno-protesta-autotrasporto-agricoltura-disagi-rete-nazionale-34e5c228-5522-45d1-8882-60f103767510.html",
-      "published_at": "2026-10-23"
+      "published_at": "2026-10-23",
+      "ambito": "nazionale"
     },
     "mondo": {
       "title": "Ucraina, nuovi raid sulla rete elettrica",
       "description": "Secondo il ministero dell’Energia ucraino, gli attacchi russi della notte hanno colpito infrastrutture in sei regioni e lasciato oltre mezzo milione di persone senza corrente. Una centrale della società Dtek ha interrotto la produzione dopo gravi danni. Sul piano diplomatico Mosca e Kiev si dicono disponibili a colloqui con gli Stati Uniti, ma le rivendicazioni russe sul Donbass continuano a dividere le parti.",
       "source": "RaiNews",
       "url": "https://www.rainews.it/maratona/2026/10/ucraina-guerra-putin-mosca-non-prepara-guerra-a-europa-ma-ucraina-orientale-e-russa-79a81218-6dbd-43fc-a9cd-460841cb2543.html",
-      "published_at": "2026-10-23"
+      "published_at": "2026-10-23",
+      "ambito": "internazionale"
     },
     "buona": {
-      "title": "La ricerca alimentare incontra il pubblico",
-      "description": "Al Maker Faire di Roma, dal 23 al 25 ottobre, il CREA presenta una macchina che riunisce le fasi di maltazione e prototipi di cibi vegetali stampati in 3D. I ricercatori mostrano ai visitatori come funzionano queste tecnologie sperimentali.",
-      "source": "CREA",
-      "url": "https://www.crea.gov.it/web/ingegneria-e-trasformazioni-agroalimentari/-/dal-chicco-al-piatto-scopri-il-futuro-dei-cereali-con-il-crea-al-maker-faire-2026",
-      "published_at": "2026-10-22"
+      "title": "Euclid scopre una cometa sconosciuta",
+      "description": "L’ESA ha annunciato il 19 ottobre la scoperta della prima nuova cometa individuata da Euclid. Riconosciuta nelle immagini grazie a un software dell’Università di Helsinki, C/2026 S1 è stata confermata dal Minor Planet Center. Un risultato inatteso per un telescopio dedicato alle galassie.",
+      "source": "ESA",
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Euclid/Euclid_discovers_new_comet",
+      "published_at": "2026-10-19",
+      "ambito": "internazionale"
     },
     "marche": {
       "title": "Macerata Jazz, stasera Simona Molinari",
       "description": "Alle 21.15, al Teatro Lauro Rossi, Simona Molinari apre Macerata Jazz Winter con «La donna è mobile» e una band femminile. La serata comincia alle 19.30 al Centrale con Naima e prosegue lì alle 23.30 con una jam session.",
       "source": "Comune di Macerata",
       "url": "https://www.comune.macerata.it/novita/simona-molinari-inaugura-macerata-jazz-winter/",
-      "published_at": "2026-10-22"
+      "published_at": "2026-10-22",
+      "ambito": "macerata"
     },
     "cultura": {
-      "title": "Alberto Sordi, il cinema torna a casa",
-      "description": "La Casa Museo Alberto Sordi partecipa alla Festa del Cinema di Roma con una rassegna dedicata all’attore. Oggi, 23 ottobre, alle 18 è in programma «Il medico della mutua». Domani, alla stessa ora, sarà proiettato «Fumo di Londra». Gli appuntamenti si tengono nella sede di via Claudio Marcello.",
-      "source": "Fondazione Museo Alberto Sordi",
-      "url": "https://fondazionemuseoalbertosordi.org/event-item/festa-del-cinema-di-roma/",
-      "published_at": "2026-10-23"
+      "title": "Londra premia il cinema di Sergei Loznitsa",
+      "description": "Il London Film Festival ha assegnato il 18 ottobre il premio principale a «Imperium» di Sergei Loznitsa. Il film ricostruisce la vita sovietica dei primi anni Settanta attraverso riprese di operatori italiani. Premiati anche «9 Temples to Heaven» per l’esordio e «Concrete Land» per il documentario.",
+      "source": "British Film Institute",
+      "url": "https://www.bfi.org.uk/london-film-festival/news/competition-winners-announced-70th-bfi-london-film-festival",
+      "published_at": "2026-10-18",
+      "ambito": "internazionale"
     }
+  },
+  "meteo": {
+    "data": "2026-10-23",
+    "localita": "Macerata",
+    "condizioni": "Sole e qualche nuvola.",
+    "min_c": 11,
+    "max_c": 20,
+    "source": "Meteomi",
+    "url": "https://www.meteomi.com/europe/italy/the-marches/provincia-di-macerata/macerata/october"
   },
   "sudoku": [
     0,
