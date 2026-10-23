@@ -1,5 +1,5 @@
 """Buongiorno Lulù — quotidiano A4. Solo Python stdlib + reportlab + PyMuPDF."""
-import os, re, json, html, random, urllib.request, xml.etree.ElementTree as ET
+import os, re, json, html, random, hashlib, urllib.request, xml.etree.ElementTree as ET
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from urllib.parse import quote
@@ -342,6 +342,14 @@ c.showPage();c.save()
 pdf=fitz.open(os.path.join(ROOT,'giornale.pdf'))
 pix=pdf[0].get_pixmap(matrix=fitz.Matrix(150/72,150/72),alpha=False)
 pix.save(os.path.join(ROOT,'giornale.jpg'),jpg_quality=85)
+# Indice compatto per ESP32: data e impronta del JPEG verificabili prima dell'invio.
+with open(os.path.join(ROOT,'giornale.jpg'),'rb') as image_file:
+    jpeg_data=image_file.read()
+with open(os.path.join(ROOT,'stampa.json'),'w',encoding='utf8') as manifest_file:
+    json.dump({'data':day,'generata_alle':now.isoformat(),'file':'giornale.jpg',
+               'byte':len(jpeg_data),'sha256':hashlib.sha256(jpeg_data).hexdigest()},
+              manifest_file,ensure_ascii=False,indent=2)
+
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
     json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'viaggio':viaggio,'aforisma':aforisma,'taccuino':taccuino,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
 asset_version=now.strftime('%Y%m%d%H%M%S')

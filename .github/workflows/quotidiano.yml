@@ -65,7 +65,7 @@ jobs:
       - name: Verifica i file
         run: |
           python - <<'PY'
-          import json, fitz
+          import json, fitz, hashlib
           from datetime import datetime
           from zoneinfo import ZoneInfo
           from pathlib import Path
@@ -82,6 +82,12 @@ jobs:
           for key, item in edition['notizie'].items():
               assert item['url'] and len(item['description'].split()) >= 32
               assert ''.join(item['description'].split()) in text, key + ': testo tagliato nel PDF'
+          manifest = json.loads(Path('stampa.json').read_text())
+          jpeg = Path('giornale.jpg').read_bytes()
+          assert manifest['data'] == edition['data']
+          assert manifest['generata_alle'] == edition['generata_alle']
+          assert manifest['byte'] == len(jpeg)
+          assert manifest['sha256'] == hashlib.sha256(jpeg).hexdigest()
           quote = edition['aforisma']
           for field in ('testo', 'autore', 'opera'):
               assert ''.join(quote[field].split()) in text, 'Aforisma: ' + field + ' tagliato'
@@ -102,7 +108,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add giornale.pdf giornale.jpg edizione.json index.html
+          git add giornale.pdf giornale.jpg edizione.json stampa.json index.html
           if ! git diff --cached --quiet; then
             git commit -m "Aggiorna edizione quotidiana"
             git push
@@ -110,7 +116,7 @@ jobs:
       - name: Prepara sito
         run: |
           mkdir -p _site
-          cp index.html giornale.pdf giornale.jpg edizione.json _site/
+          cp index.html giornale.pdf giornale.jpg edizione.json stampa.json _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
