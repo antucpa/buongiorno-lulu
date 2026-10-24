@@ -1,6 +1,6 @@
 {
   "data": "2026-10-24",
-  "generata_alle": "2026-10-24T06:14:49.710892+02:00",
+  "generata_alle": "2026-10-24T10:51:44.653893+02:00",
   "risoluzione": 300,
   "tipo": "srgb_8",
   "documenti": {
@@ -8,7 +8,7 @@
       "file": "giornale.pdf",
       "formato": "application/pdf",
       "byte": 113139,
-      "sha256": "e96b559b64165b969baa68e802ca5d3b6653c579aa3bba7c688b86604e67b2f5"
+      "sha256": "bb91e0db4a2447c95ccd196198e4b04e66b12229db67cc68f5c4ad4f7ee91c9b"
     },
     "pwg": {
       "file": "giornale.pwg",
