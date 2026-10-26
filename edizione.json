@@ -1,6 +1,6 @@
 {
   "data": "2026-10-26",
-  "generata_alle": "2026-10-26T11:04:33.213508+01:00",
+  "generata_alle": "2026-10-26T12:09:45.324084+01:00",
   "notizie": {
     "italia": {
       "title": "Salvini riconfermato alla guida della Lega",
@@ -74,6 +74,13 @@
   },
   "taccuino": {
     "pensiero": "Quale piccolo dettaglio merita oggi la nostra attenzione? Fermarsi a osservarlo può aprire una domanda che la fretta ci aveva nascosto."
+  },
+  "poesia": {
+    "titolo": "San Martino",
+    "autore": "Giosuè Carducci",
+    "testo": "La nebbia a gl’irti colli\nPiovigginando sale,\nE sotto il maestrale\nUrla e biancheggia il mar;\n\nMa per le vie del borgo\nDal ribollir de’ tini\nVa l’aspro odor de i vini\nL’anime a rallegrar.\n\nGira su’ ceppi accesi\nLo spiedo scoppiettando:\nSta il cacciator fischiando\nSu l’uscio a rimirar\n\nTra le rossastre nubi\nStormi d’uccelli neri,\nCom’esuli pensieri,\nNel vespero migrar.",
+    "source": "Università di Bologna – CarducciOnline",
+    "url": "https://site.unibo.it/carduccionline/it/rime-nuove/lviii-san-martino"
   },
   "sudoku": [
     0,
