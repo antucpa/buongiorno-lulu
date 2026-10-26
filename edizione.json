@@ -1,6 +1,6 @@
 {
   "data": "2026-10-26",
-  "generata_alle": "2026-10-26T12:09:45.324084+01:00",
+  "generata_alle": "2026-10-26T12:31:10.391521+01:00",
   "notizie": {
     "italia": {
       "title": "Salvini riconfermato alla guida della Lega",
@@ -75,6 +75,7 @@
   "taccuino": {
     "pensiero": "Quale piccolo dettaglio merita oggi la nostra attenzione? Fermarsi a osservarlo può aprire una domanda che la fretta ci aveva nascosto."
   },
+  "tipo_riquadro": "poesia",
   "poesia": {
     "titolo": "San Martino",
     "autore": "Giosuè Carducci",
@@ -82,6 +83,7 @@
     "source": "Università di Bologna – CarducciOnline",
     "url": "https://site.unibo.it/carduccionline/it/rime-nuove/lviii-san-martino"
   },
+  "vignetta": null,
   "sudoku": [
     0,
     4,
