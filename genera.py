@@ -103,13 +103,32 @@ if not isinstance(taccuino.get('pensiero'),str) or not 10<=len(taccuino['pensier
     raise ValueError('Serve un breve pensiero per il Taccuino di Lulù.')
 
 PSY=[('L’effetto alone','Una qualità che ci colpisce può condizionare il giudizio complessivo su una persona. Ricordarlo aiuta a non scambiare la prima impressione per una conoscenza completa.'),('Il bias di conferma','Cerchiamo e ricordiamo più facilmente le informazioni che sostengono ciò che già pensiamo. Confrontarci con dati contrari rende più accurati i nostri giudizi.'),('La memoria ricostruttiva','Ricordare non equivale a rivedere una registrazione: ogni ricordo viene ricostruito e può cambiare nei dettagli, anche senza che ce ne accorgiamo.'),('L’attenzione selettiva','La mente non può elaborare tutto contemporaneamente. Per questo selezioniamo alcuni stimoli e ne trascuriamo altri, talvolta anche importanti.')]
+# Alternanza ancorata al 26 ottobre: poesia, poi vignetta.
+tipo_riquadro='poesia' if (now.date()-datetime(2026,10,26).date()).days%2==0 else 'vignetta'
 poesia=edition.get('poesia',{})
-for field in ('titolo','autore','testo','source','url'):
-    if not isinstance(poesia.get(field),str) or not poesia[field].strip():
-        raise ValueError(f'Poesia: campo {field} mancante.')
-if not poesia['url'].startswith('https://'):
-    raise ValueError('Poesia: fonte non valida.')
-poem=(poesia['titolo'],poesia['autore'],poesia['testo'])
+vignetta=edition.get('vignetta',{})
+if tipo_riquadro=='poesia':
+    for field in ('titolo','autore','testo','source','url'):
+        if not isinstance(poesia.get(field),str) or not poesia[field].strip():
+            raise ValueError(f'Poesia: campo {field} mancante.')
+    if not poesia['url'].startswith('https://'):
+        raise ValueError('Poesia: fonte non valida.')
+    poem=(poesia['titolo'],poesia['autore'],poesia['testo'])
+else:
+    import base64, io
+    from PIL import Image
+    from reportlab.lib.utils import ImageReader
+    for field in ('titolo','autore','anno','didascalia','source','url','licenza','immagine_base64'):
+        if not isinstance(vignetta.get(field),str) or not vignetta[field].strip():
+            raise ValueError(f'Vignetta: campo {field} mancante.')
+    if not vignetta['url'].startswith('https://') or len(vignetta['immagine_base64'])>7000000:
+        raise ValueError('Vignetta: fonte o dimensione non valida.')
+    raw=base64.b64decode(vignetta['immagine_base64'],validate=True)
+    with Image.open(io.BytesIO(raw)) as img:
+        if img.format not in ('JPEG','PNG') or img.width*img.height>20000000 or min(img.size)<400:
+            raise ValueError('Vignetta: serve PNG/JPEG leggibile, almeno 400 pixel per lato.')
+        img.load()
+        vignetta_image=ImageReader(img.convert('RGB'))
 psych=PSY[now.toordinal()%len(PSY)]
 
 # Sudoku deterministico, con soluzione unica verificata.
@@ -245,16 +264,24 @@ story(xs[0],T-7,tw,'buona',True,bottom=T-109);story(xs[1],T-7,tw,'marche',True,b
 # Poesia completa, compatta in riquadro
 px=xs[2]-5;pw=tw+10;poem_top=T+9;poem_h=213
 c.setFillColor(pale);c.roundRect(px,poem_top-poem_h,pw,poem_h,5,fill=1,stroke=0)
-label(xs[2]+3,T,'LA POESIA DEL GIORNO')
-if pdfmetrics.stringWidth(poem[0],'SerifB',14.3)>tw-6 or pdfmetrics.stringWidth(poem[1],'SerifI',8.7)>tw-6:
-    raise ValueError('Titolo o autore poesia troppo lungo per il riquadro.')
-text(xs[2]+3,T-19,poem[0],14.3,'SerifB');text(xs[2]+3,T-31,poem[1],8.7,'SerifI',muted)
-verses=poem[2].splitlines(); yy=T-43
-for v in verses:
-    if yy<poem_top-poem_h+8 or pdfmetrics.stringWidth(v,'SerifI',8.2)>tw-6:
-        raise ValueError('Poesia troppo lunga: scegliere un testo integrale più breve.')
-    if v: text(xs[2]+3,yy,v,8.2,'SerifI')
-    yy-=8.4 if v else 3.2
+if tipo_riquadro=='poesia':
+    label(xs[2]+3,T,'LA POESIA DEL GIORNO')
+    if pdfmetrics.stringWidth(poem[0],'SerifB',14.3)>tw-6 or pdfmetrics.stringWidth(poem[1],'SerifI',8.7)>tw-6:
+        raise ValueError('Titolo o autore poesia troppo lungo per il riquadro.')
+    text(xs[2]+3,T-19,poem[0],14.3,'SerifB');text(xs[2]+3,T-31,poem[1],8.7,'SerifI',muted)
+    verses=poem[2].splitlines(); yy=T-43
+    for v in verses:
+        if yy<poem_top-poem_h+8 or pdfmetrics.stringWidth(v,'SerifI',8.2)>tw-6:
+            raise ValueError('Poesia troppo lunga: scegliere un testo integrale più breve.')
+        if v: text(xs[2]+3,yy,v,8.2,'SerifI')
+        yy-=8.4 if v else 3.2
+else:
+    label(xs[2]+3,T,'VIGNETTA D’ALTRI TEMPI')
+    vy=paragraph(xs[2]+3,T-10,tw-6,vignetta['titolo'],11,12,'SerifB',max_height=24,strict=True)
+    c.drawImage(vignetta_image,xs[2]+3,T-151,width=tw-6,height=vy-(T-151)-5,preserveAspectRatio=True,anchor='c',mask='auto')
+    paragraph(xs[2]+3,T-157,tw-6,vignetta['didascalia'],8.2,9.3,max_height=28,strict=True)
+    paragraph(xs[2]+3,T-187,tw-6,vignetta['autore']+' · '+vignetta['anno'],7.2,8,max_height=16,strict=True)
+    c.linkURL(vignetta['url'],(px,poem_top-poem_h,px+pw,poem_top),relative=0)
 # Sudoku a sinistra; consiglio di lettura nella colonna a destra.
 sudoku_mid=xs[0]+tw/2
 cell=8.7;sx=sudoku_mid-9*cell/2;sy=T-138
@@ -436,7 +463,7 @@ with open(os.path.join(ROOT,'stampa.json'),'w',encoding='utf8') as manifest_file
               manifest_file,ensure_ascii=False,indent=2)
 
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
-    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'viaggio':viaggio,'aforisma':aforisma,'taccuino':taccuino,'poesia':poesia,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
+    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'viaggio':viaggio,'aforisma':aforisma,'taccuino':taccuino,'tipo_riquadro':tipo_riquadro,'poesia':poesia if tipo_riquadro=='poesia' else None,'vignetta':{k:v for k,v in vignetta.items() if k!='immagine_base64'} if tipo_riquadro=='vignetta' else None,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
 asset_version=now.strftime('%Y%m%d%H%M%S')
 links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
 page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Da leggere</h2><h3>{html.escape(libro['titolo'])}</h3><p>{html.escape(libro['autore'])}</p><p>{html.escape(libro['consiglio'])}</p><p><a href="{html.escape(libro['url'],quote=True)}">Scheda del libro: {html.escape(libro['source'])}</a></p><h2>Idea di viaggio</h2><h3>{html.escape(viaggio['meta'])}</h3><p>{html.escape(viaggio['consiglio'])}</p><p><a href="{html.escape(viaggio['url'],quote=True)}">Scopri la meta: {html.escape(viaggio['source'])}</a></p><h2>L’aforisma</h2><blockquote>{html.escape(aforisma['testo'])}</blockquote><p>{html.escape(aforisma['autore'])}, {html.escape(aforisma['opera'])} · <a href="{html.escape(aforisma['url'],quote=True)}">Wikiquote</a></p><h2>Il Taccuino di Lulù</h2><p>{html.escape(taccuino['pensiero'])}</p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
