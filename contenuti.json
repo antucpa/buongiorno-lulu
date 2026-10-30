@@ -1,62 +1,62 @@
 {
-  "data": "2026-10-29",
+  "data": "2026-10-30",
   "notizie": {
     "italia": {
-      "title": "Manovra 2027, il governo approva il disegno di legge",
-      "description": "Il 28 ottobre il Consiglio dei ministri ha approvato il disegno di legge di bilancio per il 2027. Il testo prevede di estendere fino a 55mila euro lo scaglione Irpef al 33% e di alzare a 100mila euro la soglia del regime forfettario. Sono misure ancora da esaminare in Parlamento: il via libera del governo non le rende già operative.",
-      "source": "Euronews",
-      "url": "https://it.euronews.com/2026/10/28/manovra-2027-il-consiglio-dei-ministri-approva-il-disegno-di-legge-di-bilancio",
-      "ambito": "nazionale",
-      "published_at": "2026-10-28"
+      "title": "Lavoro, occupazione stabile a settembre",
+      "description": "I dati provvisori Istat diffusi il 29 ottobre descrivono un mercato del lavoro sostanzialmente fermo a settembre: il tasso di occupazione resta al 63% e la disoccupazione al 6,3%. Quella giovanile scende al 19,9%. Rispetto a un anno prima gli occupati sono 198mila in più, ma nel confronto fra trimestri aumentano le persone in cerca di lavoro di 108mila unità.",
+      "source": "Istat",
+      "url": "https://www.istat.it/comunicato-stampa/occupati-e-disoccupati-dati-provvisori-settembre-2026/",
+      "published_at": "2026-10-29",
+      "ambito": "nazionale"
     },
     "mondo": {
-      "title": "Spagna, almeno 68 morti nello scontro fra treni",
-      "description": "Il 28 ottobre un treno ad alta velocità Renfe ha urtato un convoglio Iryo fermo in Castiglia-La Mancia, causando almeno 68 morti e 80 feriti secondo Reuters. Il ministro dei Trasporti ha riferito di un’autorizzazione errata a procedere dopo un segnale rosso. La dinamica resta oggetto d’indagine; il premier Sánchez ha promesso accertamenti completi sulle cause e sulla sicurezza ferroviaria.",
+      "title": "Ucraina, attacco alla stazione di Dnipro",
+      "description": "Un attacco russo con un drone ha ucciso almeno 14 persone sulla banchina della stazione di Dnipro il 29 ottobre, secondo le autorità ucraine citate da Reuters. Altre sei vittime sono state segnalate in diverse città. Intanto, una tregua locale nella regione di Kherson permette un’operazione umanitaria verso Oleshky: riguarda soltanto quell’area e non interrompe gli attacchi nel resto dell’Ucraina.",
       "source": "Reuters",
-      "url": "https://www.reuters.com/world/two-high-speed-trains-rear-end-spain-rail-operator-says-2026-10-28/",
-      "ambito": "internazionale",
-      "published_at": "2026-10-28"
+      "url": "https://www.reuters.com/world/europe/russian-drone-attack-train-station-kills-13-ukraines-dnipro-2026-10-29/",
+      "published_at": "2026-10-29",
+      "ambito": "internazionale"
     },
     "buona": {
-      "title": "Venti persone tornano a casa",
-      "description": "In Kenya venti contatti di un caso di Ebola sono tornati dalle famiglie dopo 21 giorni di quarantena senza sintomi. Lo ha comunicato l’OMS il 26 ottobre. È un risultato positivo del monitoraggio, mentre la risposta all’epidemia continua.",
+      "title": "Polio, protetti in milioni",
+      "description": "Il Malawi ha vaccinato oltre 7,3 milioni di bambini contro la poliomielite nella campagna dell’11-14 agosto. L’OMS ne ha pubblicato i risultati il 29 ottobre: controlli di qualità superati in 22 distretti su 29, mentre prosegue l’impegno contro il virus.",
       "source": "OMS",
-      "url": "https://www.afro.who.int/countries/kenya/news/twenty-contacts-kenyas-first-ebola-case-released-quarantine",
-      "ambito": "internazionale",
-      "published_at": "2026-10-26"
+      "url": "https://www.afro.who.int/countries/malawi/news/malawi-delivers-strong-fourth-round-polio-campaign-reaching-more-73-million-children",
+      "published_at": "2026-10-29",
+      "ambito": "internazionale"
     },
     "marche": {
-      "title": "Ricostruzione, parla il sindaco",
-      "description": "Il 28 ottobre Sandro Parcaroli ha dichiarato che il Comune di Macerata non ha affidato appalti pubblici all’impresa Crucianelli. Sull’inchiesta per la ricostruzione ha chiesto tutela dei lavoratori e continuità dei cantieri privati, richiamando il principio di non colpevolezza.",
-      "source": "Radio Nuova Macerata",
-      "url": "https://www.radionuova.com/2026/10/28/142159/",
-      "ambito": "macerata",
-      "published_at": "2026-10-28"
+      "title": "Artigianato, storie da tramandare",
+      "description": "Unitre e Cna propongono alla Filarmonica di Macerata sei incontri sulla storia dell’artigianato e dell’impresa. Il ciclo, annunciato il 27 ottobre con avvio previsto il 28, alterna lezioni e testimonianze aziendali; proseguirà ogni mercoledì fino al 2 dicembre.",
+      "source": "Cronache Maceratesi",
+      "url": "https://www.cronachemaceratesi.it/2026/10/27/la-storia-dellartigianato-maceratese-in-sei-incontri-targati-unitre-e-cna/2120105/",
+      "published_at": "2026-10-27",
+      "ambito": "macerata"
     },
     "cultura": {
-      "title": "MedFilm, cinema fra le sponde del Mediterraneo",
-      "description": "Il MedFilm Festival ha annunciato il 28 ottobre la sua trentaduesima edizione, a Roma dal 5 al 15 novembre. Aprirà «Only Rebels Win» di Danielle Arbid, presente con il film. Rashid Masharawi riceverà il Premio alla Carriera e accompagnerà una retrospettiva dedicata a Mohammad Bakri.",
+      "title": "Austen torna sullo schermo",
+      "description": "Il 28 ottobre è stato diffuso il primo teaser della nuova miniserie Netflix «Orgoglio e Pregiudizio», prevista dal 3 dicembre. Emma Corrin e Jack Lowden interpretano Elizabeth Bennet e Darcy. I sei episodi sono scritti da Dolly Alderton e diretti da Euros Lyn, rileggendo il romanzo di Jane Austen.",
       "source": "ANSA",
-      "url": "https://www.ansa.it/sito/notizie/cultura/cinema/2026/10/28/torna-il-medfilm-festival-apre-danielle-arbid-con-only-rebels-win_29c78590-1f5e-4e21-842f-150c2ad24b0d.html",
-      "ambito": "internazionale",
-      "published_at": "2026-10-28"
+      "url": "https://www.ansa.it/sito/notizie/cultura/tv/2026/10/28/orgoglio-e-pregiudizio-la-serie-netflix-con-emma-corrin-e-jack-lowden-dal_655129b7-54a5-4629-b822-1ac96c013512.html",
+      "published_at": "2026-10-28",
+      "ambito": "internazionale"
     }
   },
   "meteo": {
-    "data": "2026-10-29",
+    "data": "2026-10-30",
     "localita": "Macerata",
-    "condizioni": "Poco nuvoloso, nubi in aumento. Possibili piogge deboli nel pomeriggio-sera.",
-    "min_c": 11.3,
-    "max_c": 17.2,
+    "condizioni": "Schiarite al mattino, nubi e possibili rovesci nel pomeriggio.",
+    "min_c": 9.7,
+    "max_c": 14.7,
     "source": "AMAP – Agrometeo Marche",
-    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere"
+    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/48"
   },
   "libro": {
-    "titolo": "La forma dell’acqua",
-    "autore": "Andrea Camilleri",
-    "consiglio": "Il primo Montalbano intreccia indagine, ironia e potere nella Sicilia di Vigàta. Leggilo per una lingua vivace che rende i personaggi immediatamente riconoscibili, senza semplificare la realtà.",
-    "source": "Sellerio",
-    "url": "https://www.sellerio.it/it/catalogo/Forma-Acqua/Camilleri/425"
+    "titolo": "Il vecchio e il mare",
+    "autore": "Ernest Hemingway",
+    "consiglio": "Una sfida in mare diventa un racconto sulla dignità e sulla tenacia. Hemingway affida a parole essenziali la forza di resistere, senza confondere coraggio e invincibilità.",
+    "source": "Mondadori",
+    "url": "https://www.ragazzimondadori.it/libri/il-vecchio-e-il-mare-ernest-hemingway-2/"
   },
   "libri_proposti": [
     {
@@ -93,13 +93,18 @@
       "titolo": "La forma dell’acqua",
       "autore": "Andrea Camilleri",
       "data": "2026-10-29"
+    },
+    {
+      "titolo": "Il vecchio e il mare",
+      "autore": "Ernest Hemingway",
+      "data": "2026-10-30"
     }
   ],
   "viaggio": {
-    "meta": "Lubiana, Slovenia",
-    "consiglio": "Dedica una passeggiata al parco Tivoli, tra sculture e alberi, poi cerca Grad Tivoli e il giardino di Švicarija: arte e natura dialogano accanto alla città.",
-    "source": "MGLC Lubiana",
-    "url": "https://mglc.si/en/plan-your-visit/more-than-just-a-visit/"
+    "meta": "Ferrara, Emilia-Romagna – Italia",
+    "consiglio": "Scopri il Castello Estense, dalle prigioni ai saloni affrescati, poi osserva dall’esterno il fossato: una fortezza trasformata in dimora racconta il potere e il Rinascimento ferrarese.",
+    "source": "Castelli Emilia-Romagna",
+    "url": "https://castelliemiliaromagna.it/it/s/ferrara/6024-castello_estense"
   },
   "viaggi_proposti": [
     {
@@ -129,14 +134,18 @@
     {
       "meta": "Lubiana, Slovenia",
       "data": "2026-10-29"
+    },
+    {
+      "meta": "Ferrara, Emilia-Romagna – Italia",
+      "data": "2026-10-30"
     }
   ],
   "aforisma": {
-    "testo": "La miseria, quando è miseria davvero, la intendono tutti: anche i ragazzi.",
-    "autore": "Carlo Collodi",
-    "opera": "Le avventure di Pinocchio, cap. 8",
+    "testo": "Se le vostre massime morali vi rattristano, dipende dal fatto che sono sbagliate.",
+    "autore": "Robert Louis Stevenson",
+    "opera": "Attraverso le pianure, cap. XII, II",
     "source": "Wikiquote",
-    "url": "https://it.wikiquote.org/wiki/Carlo_Collodi#Le_avventure_di_Pinocchio"
+    "url": "https://it.wikiquote.org/wiki/Robert_Louis_Stevenson#Cap._XII,_Un_sermone_di_Natale"
   },
   "aforismi_proposti": [
     {
@@ -173,17 +182,22 @@
       "testo": "La miseria, quando è miseria davvero, la intendono tutti: anche i ragazzi.",
       "autore": "Carlo Collodi",
       "data": "2026-10-29"
+    },
+    {
+      "testo": "Se le vostre massime morali vi rattristano, dipende dal fatto che sono sbagliate.",
+      "autore": "Robert Louis Stevenson",
+      "data": "2026-10-30"
     }
   ],
   "taccuino": {
-    "pensiero": "Una gentilezza senza occasione speciale può cambiare il ritmo della giornata. Quale piccolo gesto puoi regalare oggi senza aspettare nulla in cambio?"
+    "pensiero": "Conserva una foglia caduta e prova a disegnarne le nervature. Quanto tempo serve perché un oggetto comune diventi una piccola scoperta?"
   },
   "poesia": {
-    "titolo": "Pianto antico",
+    "titolo": "Tedio invernale",
     "autore": "Giosuè Carducci",
-    "testo": "L’albero a cui tendevi\nLa pargoletta mano,\nIl verde melograno\nDa’ bei vermigli fior,\n\nNel muto orto solingo\nRinverdì tutto or ora\nE giugno lo ristora\nDi luce e di calor.\n\nTu fior de la mia pianta\nPercossa e inaridita,\nTu de l’inutil vita\nEstremo unico fior,\n\nSei ne la terra fredda,\nSei ne la terra negra;\nNé il sol più ti rallegra\nNé ti risveglia amor.",
+    "testo": "Ma ci fu dunque un giorno\nSu questa terra il sole?\nCi fur rose e vïole,\nLuce, sorriso, ardor?\n\nMa ci fu dunque un giorno\nLa dolce giovinezza,\nLa gloria e la bellezza,\nFede, virtude, amor?\n\nCiò forse avvenne a i tempi\nD’Omero e di Valmichi:\nMa quei son tempi antichi,\nIl sole or non è più.\n\nE questa ov’io m’avvolgo\nNebbia di verno immondo\nÈ il cenere d’un mondo\nChe forse un giorno fu.",
     "source": "Università di Bologna – CarducciOnline",
-    "url": "https://site.unibo.it/carduccionline/it/rime-nuove/xlii-pianto-antico"
+    "url": "https://site.unibo.it/carduccionline/it/rime-nuove/xliv-tedio-invernale"
   },
   "poesie_proposte": [
     {
@@ -200,6 +214,11 @@
       "titolo": "Pianto antico",
       "autore": "Giosuè Carducci",
       "data": "2026-10-28"
+    },
+    {
+      "titolo": "Tedio invernale",
+      "autore": "Giosuè Carducci",
+      "data": "2026-10-30"
     }
   ],
   "vignette_proposte": [
@@ -240,6 +259,10 @@
     {
       "pensiero": "Una gentilezza senza occasione speciale può cambiare il ritmo della giornata. Quale piccolo gesto puoi regalare oggi senza aspettare nulla in cambio?",
       "data": "2026-10-29"
+    },
+    {
+      "pensiero": "Conserva una foglia caduta e prova a disegnarne le nervature. Quanto tempo serve perché un oggetto comune diventi una piccola scoperta?",
+      "data": "2026-10-30"
     }
   ]
 }
