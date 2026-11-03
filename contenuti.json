@@ -1,62 +1,62 @@
 {
-  "data": "2026-11-02",
+  "data": "2026-11-03",
   "notizie": {
     "italia": {
-      "title": "Antonelli campione del mondo a vent’anni",
-      "description": "Andrea Kimi Antonelli ha conquistato il mondiale di Formula Uno il 1° novembre, arrivando terzo nel Gran Premio del Messico. Il pilota della Mercedes diventa il più giovane campione della storia e riporta il titolo in Italia dopo 73 anni, dall’ultimo successo di Alberto Ascari. La certezza matematica arriva con quattro gare ancora da disputare in questa stagione.",
-      "source": "CONI",
-      "url": "https://www.coni.it/it/news/kimi-antonelli-si-laurea-campione-del-mondo-dopo-73-anni-un-pilota-italiano-torna-sul-trono.html",
-      "published_at": "2026-11-01",
+      "title": "Pasolini, una nuova indagine dopo 51 anni",
+      "description": "La Procura di Roma ha aperto una nuova indagine sull’omicidio di Pier Paolo Pasolini, annunciata il 2 novembre, anniversario della morte. Il fascicolo è affidato alla magistrata Silvia Santucci. Alla base c’è l’esposto dell’avvocato Stefano Maccioni, integrato con elementi relativi a un nuovo testimone: possibili contributi alla ricostruzione del delitto, ancora da valutare attraverso il lavoro degli inquirenti.",
+      "source": "ANSA",
+      "url": "https://www.ansa.it/sito/notizie/cronaca/2026/11/02/aperta-unindagine-sullomicidio-pasolini-ce-un-nuovo-testimone_2e7702e1-5765-4026-8a38-b781f3fd3a75.html",
+      "published_at": "2026-11-02",
       "ambito": "nazionale"
     },
     "mondo": {
-      "title": "Hormuz, Teheran segnala due petroliere colpite",
-      "description": "La marina dei Guardiani della rivoluzione iraniani ha dichiarato il 1° novembre che due petroliere sono esplose dopo aver urtato mine nello stretto di Hormuz. Secondo la versione diffusa dai media statali, percorrevano una rotta non autorizzata. Reuters attribuisce la notizia alle autorità iraniane: il breve dispaccio non offre conferme indipendenti né dettagli su equipaggi, vittime o identità delle navi.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/world/middle-east/irans-irgc-navy-says-two-tankers-exploded-after-hitting-mines-hormuz-2026-11-01/",
-      "published_at": "2026-11-01",
+      "title": "Hebron, gli sfollati tornano nelle case danneggiate",
+      "description": "Il 2 novembre le forze israeliane si sono ritirate da Hebron dopo un’operazione durata dieci giorni. Secondo l’ONU, oltre tremila persone erano state sfollate. I residenti rientrano fra abitazioni danneggiate e macerie. L’esercito afferma di aver cercato armi e interrogato sospetti; l’intervento era seguito all’uccisione di due soldati israeliani in un attacco a un posto di controllo.",
+      "source": "Reuters / Internazionale",
+      "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/02/displaced-palestinians-return-to-damaged-hebron-quarter-as-israeli-troops-withdraw",
+      "published_at": "2026-11-02",
       "ambito": "internazionale"
     },
     "buona": {
-      "title": "Quasi due miliardi per il clima",
-      "description": "Il Green Climate Fund ha approvato il 29 ottobre 1,97 miliardi di dollari per 21 progetti, una cifra record per una singola riunione. Sono risorse autorizzate per l’azione climatica: l’approvazione è concreta, mentre i risultati dipenderanno dall’attuazione.",
+      "title": "Biodiversità, un accordo per accelerare",
+      "description": "Il 31 ottobre la conferenza ONU sulla biodiversità di Yerevan ha approvato un percorso per accelerare la protezione della natura entro il 2030. L’accordo rilancia cooperazione e riduzione dei sussidi dannosi, ma i finanziamenti necessari restano insufficienti.",
       "source": "Reuters",
-      "url": "https://www.reuters.com/sustainability/cop/green-climate-fund-approves-record-near-2-billion-funding-2026-10-29/",
-      "published_at": "2026-10-29",
+      "url": "https://www.reuters.com/sustainability/cop/countries-reach-cop17-deal-speed-up-biodiversity-action-money-still-short-2026-10-31/",
+      "published_at": "2026-10-31",
       "ambito": "internazionale"
     },
     "marche": {
-      "title": "Al Lauro Rossi si incontrano teatro e cucina",
-      "description": "Macerata prepara «Teatri e sapori»: il 7 novembre, alle 10.30, il Lauro Rossi ospiterà un incontro gratuito sul patrimonio teatrale e gastronomico. Come annunciato il 30 ottobre, nel foyer saranno esposti antichi libri di cucina della Biblioteca Mozzi Borgetti.",
-      "source": "Macerata Netweek",
-      "url": "https://maceratanetweek.it/macerata/a-macerata-il-lauro-rossi-dialoga-con-la-cucina-italiana/",
-      "published_at": "2026-10-30",
+      "title": "La città ricorda defunti e caduti",
+      "description": "Il programma cittadino del 2 novembre, pubblicato il giorno precedente, prevedeva al cimitero civico di Macerata deposizioni di corone e celebrazioni con il vescovo Nazzareno Marconi. Previsto anche l’omaggio del sindaco alle tombe di sei ex primi cittadini.",
+      "source": "La Rucola",
+      "url": "https://www.larucola.org/2026/11/01/il-2-novembre-commemorazione-dei-defunti-al-cimitero-di-macerata/",
+      "published_at": "2026-11-01",
       "ambito": "macerata"
     },
     "cultura": {
-      "title": "Il nuovo cinema italiano incontra gli Stati Uniti",
-      "description": "Il festival Nice porterà il cinema italiano contemporaneo in cinque città della costa orientale americana, dal 7 novembre al 5 dicembre. L’annuncio del 30 ottobre presenta una rassegna aperta anche alle università e alle nuove generazioni. In apertura «Le bambine», opera prima delle sorelle Bertani.",
+      "title": "Il fantastico premia il cinema scandinavo",
+      "description": "«No Rest for the Wicked» di Kasper Kalle ha vinto il premio al miglior lungometraggio del Monsters, festival internazionale del cinema fantastico concluso a Taranto. L’annuncio del 2 novembre segnala anche il doppio riconoscimento a «Everblind» di Camillo Sancisi, miglior corto internazionale e italiano.",
       "source": "ANSA",
-      "url": "https://www.ansa.it/sito/notizie/cultura/cinema/2026/10/30/negli-stati-uniti-al-via-la-36a-edizione-del-festival-del-nuovo_57c5fabe-1367-462d-bdfa-ba646f12483b.html",
-      "published_at": "2026-10-30",
+      "url": "https://www.ansa.it/sito/notizie/cultura/cinema/2026/11/02/monsters-film-festival-a-taranto-trionfa-il-cinema-fantastico-scandinavo_a61caed3-8911-486d-a252-12676dfe85f3.html",
+      "published_at": "2026-11-02",
       "ambito": "internazionale"
     }
   },
   "meteo": {
-    "data": "2026-11-02",
+    "data": "2026-11-03",
     "localita": "Macerata",
-    "condizioni": "Cielo molto nuvoloso con piogge, in attenuazione nella seconda parte della giornata.",
-    "min_c": 7.1,
-    "max_c": 9.2,
+    "condizioni": "Nuvole e possibili piogge sparse; schiarite più ampie in serata.",
+    "min_c": 7.8,
+    "max_c": 10.5,
     "source": "AMAP – Agrometeo Marche",
-    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/72"
+    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/24"
   },
   "libro": {
-    "titolo": "Lessico famigliare",
-    "autore": "Natalia Ginzburg",
-    "consiglio": "Le parole di casa custodiscono una famiglia e un’epoca. Ginzburg intreccia memoria privata e storia italiana con una voce limpida, capace di rendere indimenticabili persone e piccoli rituali.",
-    "source": "Biblioteche di Puglia – SBN",
-    "url": "https://biblioteche.regione.puglia.it/SebinaOpac/resource/PUG01181746"
+    "titolo": "L’assassinio di Roger Ackroyd",
+    "autore": "Agatha Christie",
+    "consiglio": "Poirot interrompe la pensione per un delitto di paese. Leggilo lentamente, osservando ciò che viene detto e ciò che resta nascosto: Christie rende il lettore parte dell’indagine.",
+    "source": "Mondadori",
+    "url": "https://www.ragazzimondadori.it/libri/lassassinio-di-roger-ackroyd-agatha-christie-9788804790440/"
   },
   "libri_proposti": [
     {
@@ -108,13 +108,18 @@
       "titolo": "Lessico famigliare",
       "autore": "Natalia Ginzburg",
       "data": "2026-11-02"
+    },
+    {
+      "titolo": "L’assassinio di Roger Ackroyd",
+      "autore": "Agatha Christie",
+      "data": "2026-11-03"
     }
   ],
   "viaggio": {
-    "meta": "Spello, Umbria – Italia",
-    "consiglio": "Entra in Santa Maria Maggiore per scoprire la Cappella Baglioni: gli affreschi del Pinturicchio trasformano pareti e volte in un racconto di prospettive, volti e colori.",
-    "source": "Comune di Spello",
-    "url": "https://www.comune.spello.pg.it/luogo/cappella-baglioni/"
+    "meta": "Graz, Austria",
+    "consiglio": "Sullo Schlossberg cerca la Torre dell’Orologio e osserva le lancette invertite. Fermati poi nei giardini del bastione per abbracciare con lo sguardo i tetti della città.",
+    "source": "Graz Tourismus",
+    "url": "https://www.graztourismus.at/it/attrazioni-e-cultura/luoghi-di-interesse/torre-dell-orologio_shg_1488"
   },
   "viaggi_proposti": [
     {
@@ -156,14 +161,18 @@
     {
       "meta": "Spello, Umbria – Italia",
       "data": "2026-11-02"
+    },
+    {
+      "meta": "Graz, Austria",
+      "data": "2026-11-03"
     }
   ],
   "aforisma": {
-    "testo": "L'amicizia è certamente un balsamo alle pene dell'amore deluso.",
-    "autore": "Jane Austen",
-    "opera": "L’abbazia di Northanger",
+    "testo": "Finché si avranno passioni non si cesserà di scoprire il mondo.",
+    "autore": "Cesare Pavese",
+    "opera": "Il mestiere di vivere, 16 giugno 1940",
     "source": "Wikiquote",
-    "url": "https://it.wikiquote.org/wiki/Jane_Austen#Citazioni_di_Jane_Austen"
+    "url": "https://it.wikiquote.org/wiki/Cesare_Pavese#Il_mestiere_di_vivere"
   },
   "aforismi_proposti": [
     {
@@ -215,17 +224,22 @@
       "testo": "L'amicizia è certamente un balsamo alle pene dell'amore deluso.",
       "autore": "Jane Austen",
       "data": "2026-11-02"
+    },
+    {
+      "testo": "Finché si avranno passioni non si cesserà di scoprire il mondo.",
+      "autore": "Cesare Pavese",
+      "data": "2026-11-03"
     }
   ],
   "taccuino": {
-    "pensiero": "Quale profumo ti riporta a un luogo lontano? Prova a descriverlo senza nominarlo: forse la memoria comincia proprio dai sensi."
+    "pensiero": "C’è qualcuno a cui vorresti fare una domanda rimasta in sospeso? Oggi trova parole semplici: una conversazione può riaprire una porta."
   },
   "poesia": {
-    "titolo": "Tedio invernale",
-    "autore": "Giosuè Carducci",
-    "testo": "Ma ci fu dunque un giorno\nSu questa terra il sole?\nCi fur rose e vïole,\nLuce, sorriso, ardor?\n\nMa ci fu dunque un giorno\nLa dolce giovinezza,\nLa gloria e la bellezza,\nFede, virtude, amor?\n\nCiò forse avvenne a i tempi\nD’Omero e di Valmichi:\nMa quei son tempi antichi,\nIl sole or non è più.\n\nE questa ov’io m’avvolgo\nNebbia di verno immondo\nÈ il cenere d’un mondo\nChe forse un giorno fu.",
-    "source": "Università di Bologna – CarducciOnline",
-    "url": "https://site.unibo.it/carduccionline/it/rime-nuove/xliv-tedio-invernale"
+    "titolo": "Il lampo",
+    "autore": "Giovanni Pascoli",
+    "testo": "E cielo e terra si mostrò qual era:\nla terra ansante, livida, in sussulto;\nil cielo ingombro, tragico, disfatto:\nbianca bianca nel tacito tumulto\nuna casa apparì sparì d’un tratto;\ncome un occhio, che, largo, esterrefatto,\ns’aprì si chiuse, nella notte nera.",
+    "source": "Wikisource – Myricae",
+    "url": "https://it.wikisource.org/wiki/Myricae/Tristezze/Il_lampo"
   },
   "poesie_proposte": [
     {
@@ -247,6 +261,11 @@
       "titolo": "Tedio invernale",
       "autore": "Giosuè Carducci",
       "data": "2026-10-30"
+    },
+    {
+      "titolo": "Il lampo",
+      "autore": "Giovanni Pascoli",
+      "data": "2026-11-03"
     }
   ],
   "vignette_proposte": [
@@ -313,6 +332,10 @@
     {
       "pensiero": "Quale profumo ti riporta a un luogo lontano? Prova a descriverlo senza nominarlo: forse la memoria comincia proprio dai sensi.",
       "data": "2026-11-02"
+    },
+    {
+      "pensiero": "C’è qualcuno a cui vorresti fare una domanda rimasta in sospeso? Oggi trova parole semplici: una conversazione può riaprire una porta.",
+      "data": "2026-11-03"
     }
   ]
 }
