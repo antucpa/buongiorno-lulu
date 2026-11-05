@@ -1,6 +1,6 @@
 {
   "data": "2026-11-05",
-  "generata_alle": "2026-11-05T06:51:08.917616+01:00",
+  "generata_alle": "2026-11-05T06:52:28.426131+01:00",
   "notizie": {
     "italia": {
       "title": "Mattarella ricorda chi salvò i libri dal fango",
@@ -46,7 +46,7 @@
   "meteo": {
     "data": "2026-11-05",
     "localita": "Macerata",
-    "condizioni": "Nuvole basse, senza pioggia; possibili foschie al mattino e in serata.",
+    "condizioni": "Nuvole basse e tempo asciutto; possibili foschie al mattino e in serata.",
     "min_c": 8.6,
     "max_c": 14.8,
     "source": "AMAP – Agrometeo Marche",
