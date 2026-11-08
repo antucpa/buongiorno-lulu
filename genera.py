@@ -107,7 +107,21 @@ PSY=[('L’effetto alone','Una qualità che ci colpisce può condizionare il giu
 tipo_riquadro='poesia' if (now.date()-datetime(2026,10,26).date()).days%2==0 else 'vignetta'
 poesia=edition.get('poesia',{})
 vignetta=edition.get('vignetta',{})
-if tipo_riquadro=='poesia':
+foto = edition.get('foto_speciale') if day == '2026-11-09' else None
+if day == '2026-11-09':
+    import base64, io
+    from PIL import Image, ImageOps
+    from reportlab.lib.utils import ImageReader
+    if not isinstance(foto,dict) or not foto.get('immagine_base64'):
+        raise ValueError('9 novembre: manca la foto per Lulù.')
+    tipo_riquadro='foto'
+    dedica='«Attenta a inseguire i sogni, che a volte si avverano!»'
+    firma='Vinicio Capossela'
+    with Image.open(io.BytesIO(base64.b64decode(foto['immagine_base64'], validate=True))) as im:
+        im=ImageOps.exif_transpose(im).convert('RGB')
+        im.thumbnail((420,760), Image.Resampling.LANCZOS)
+        foto_image=ImageReader(im)
+elif tipo_riquadro=='poesia':
     for field in ('titolo','autore','testo','source','url'):
         if not isinstance(poesia.get(field),str) or not poesia[field].strip():
             raise ValueError(f'Poesia: campo {field} mancante.')
@@ -264,7 +278,12 @@ story(xs[0],T-7,tw,'buona',True,bottom=T-109);story(xs[1],T-7,tw,'marche',True,b
 # Poesia completa, compatta in riquadro
 px=xs[2]-5;pw=tw+10;poem_top=T+9;poem_h=213
 c.setFillColor(pale);c.roundRect(px,poem_top-poem_h,pw,poem_h,5,fill=1,stroke=0)
-if tipo_riquadro=='poesia':
+if tipo_riquadro=='foto':
+    label(xs[2]+3,T,'PER LULÙ')
+    c.drawImage(foto_image,xs[2]+3,T-148,width=tw-6,height=140,preserveAspectRatio=True,anchor='c')
+    fy=paragraph(xs[2]+3,T-155,tw-6,dedica,9.4,11,'SerifI',max_height=33,strict=True)
+    paragraph(xs[2]+3,fy-3,tw-6,firma,8,10,max_height=12,strict=True)
+elif tipo_riquadro=='poesia':
     label(xs[2]+3,T,'LA POESIA DEL GIORNO')
     if pdfmetrics.stringWidth(poem[0],'SerifB',14.3)>tw-6 or pdfmetrics.stringWidth(poem[1],'SerifI',8.7)>tw-6:
         raise ValueError('Titolo o autore poesia troppo lungo per il riquadro.')
@@ -463,7 +482,7 @@ with open(os.path.join(ROOT,'stampa.json'),'w',encoding='utf8') as manifest_file
               manifest_file,ensure_ascii=False,indent=2)
 
 with open(os.path.join(ROOT,'edizione.json'),'w',encoding='utf8') as f:
-    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'viaggio':viaggio,'aforisma':aforisma,'taccuino':taccuino,'tipo_riquadro':tipo_riquadro,'poesia':poesia if tipo_riquadro=='poesia' else None,'vignetta':{k:v for k,v in vignetta.items() if k!='immagine_base64'} if tipo_riquadro=='vignetta' else None,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
+    json.dump({'data':day,'generata_alle':now.isoformat(),'notizie':items,'meteo':meteo,'libro':libro,'viaggio':viaggio,'aforisma':aforisma,'taccuino':taccuino,'tipo_riquadro':tipo_riquadro,**({'foto_speciale':{'didascalia':dedica,'autore':firma}} if tipo_riquadro=='foto' else {}),'poesia':poesia if tipo_riquadro=='poesia' else None,'vignetta':{k:v for k,v in vignetta.items() if k!='immagine_base64'} if tipo_riquadro=='vignetta' else None,'sudoku':puzzle,'soluzione_sudoku':solution},f,ensure_ascii=False,indent=2)
 asset_version=now.strftime('%Y%m%d%H%M%S')
 links=''.join('<li><b>'+html.escape('Macerata' if k=='marche' else k.capitalize())+'</b>: <a href="'+html.escape(v['url'],quote=True)+'">'+html.escape(v['title'])+'</a> ('+html.escape(v['source'])+')<p>'+html.escape(v['description'])+'</p></li>' for k,v in items.items() if v['url'])
 page=f'''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buongiorno Lulù — {day}</title><style>body{{font-family:Georgia,serif;background:#eee8de;color:#25221e;max-width:850px;margin:20px auto;padding:16px}}h1,p{{text-align:center}}img{{display:block;width:100%;box-shadow:0 3px 14px #aaa}}a{{color:#702c34}}</style></head><body><h1>Buongiorno Lulù</h1><p>{longdate}</p><h2>Meteo del giorno a Macerata</h2><p>{html.escape(meteo['condizioni'])} {html.escape(weather_line)}<br><a href="{html.escape(meteo['url'],quote=True)}">Previsioni: {html.escape(meteo['source'])}</a></p><a href="giornale.jpg?v={asset_version}"><img src="giornale.jpg?v={asset_version}" alt="Giornale del giorno A4"></a><p><a href="giornale.pdf?v={asset_version}">Scarica il giornale PDF</a> · <a href="giornale.jpg?v={asset_version}">JPEG per la Canon</a></p><h2>Da leggere</h2><h3>{html.escape(libro['titolo'])}</h3><p>{html.escape(libro['autore'])}</p><p>{html.escape(libro['consiglio'])}</p><p><a href="{html.escape(libro['url'],quote=True)}">Scheda del libro: {html.escape(libro['source'])}</a></p><h2>Idea di viaggio</h2><h3>{html.escape(viaggio['meta'])}</h3><p>{html.escape(viaggio['consiglio'])}</p><p><a href="{html.escape(viaggio['url'],quote=True)}">Scopri la meta: {html.escape(viaggio['source'])}</a></p><h2>L’aforisma</h2><blockquote>{html.escape(aforisma['testo'])}</blockquote><p>{html.escape(aforisma['autore'])}, {html.escape(aforisma['opera'])} · <a href="{html.escape(aforisma['url'],quote=True)}">Wikiquote</a></p><h2>Il Taccuino di Lulù</h2><p>{html.escape(taccuino['pensiero'])}</p><h2>Fonti delle notizie</h2><ul>{links}</ul><p>Selezione e sintesi con assistenza AI. Fonti originali collegate per approfondimenti e verifica.</p></body></html>'''
