@@ -1,6 +1,6 @@
 {
   "data": "2026-11-09",
-  "generata_alle": "2026-11-09T06:53:11.223283+01:00",
+  "generata_alle": "2026-11-09T06:54:31.740257+01:00",
   "notizie": {
     "italia": {
       "title": "Attacchi informatici, vertice al Viminale",
@@ -46,7 +46,7 @@
   "meteo": {
     "data": "2026-11-09",
     "localita": "Macerata",
-    "condizioni": "Cielo velato, nubi basse nelle ore più fredde. Non è prevista pioggia.",
+    "condizioni": "Cielo velato, con nubi basse nelle ore più fredde. Tempo asciutto.",
     "min_c": 6.6,
     "max_c": 14.1,
     "source": "AMAP Agrometeo Marche",
