@@ -1,26 +1,26 @@
 {
-  "data": "2026-11-11",
-  "generata_alle": "2026-11-11T12:51:07.997804+01:00",
+  "data": "2026-11-12",
+  "generata_alle": "2026-11-12T06:22:58.747829+01:00",
   "risoluzione": 300,
   "tipo": "srgb_8",
   "documenti": {
     "pdf": {
       "file": "giornale.pdf",
       "formato": "application/pdf",
-      "byte": 113055,
-      "sha256": "5d4df16687e11a6830bee59a53006988b674ac4df1281c23ff1d256b769aff0f"
+      "byte": 151941,
+      "sha256": "65aaa36af0fe74433fafa7f018c52141ca8ef88172a51e0ec5939b5de2b91ffa"
     },
     "pwg": {
       "file": "giornale.pwg",
       "formato": "image/pwg-raster",
-      "byte": 938786,
-      "sha256": "8fd74245c91d4d42fec5987eca03bd97c701aed8d648093157e60959485ee335"
+      "byte": 1097637,
+      "sha256": "93ae3c19913ec6c1f89e273d569274990ab0ac2815a275ef8238eb07fadbc1a1"
     },
     "urf": {
       "file": "giornale.urf",
       "formato": "image/urf",
-      "byte": 937030,
-      "sha256": "604f50682ae1797a01be56d0acaa3b68c79dd7791c30167bd1ad7ce5d159554c"
+      "byte": 1095881,
+      "sha256": "ce2248cd8d27187c16d7b9f209f2f865938d5c4394fa09650a7491dac1289d80"
     }
   }
 }
