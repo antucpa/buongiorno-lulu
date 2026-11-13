@@ -52,11 +52,11 @@
     "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/48"
   },
   "libro": {
-    "titolo": "Il piccolo libraio di Archangelsk",
-    "autore": "Georges Simenon",
-    "consiglio": "Quando Gina scompare, i vicini guardano diversamente suo marito Jonas. Simenon racconta quanto poco basti perché un uomo conosciuto da tutti torni a essere lo straniero del paese.",
+    "titolo": "Gigi",
+    "autore": "Colette",
+    "consiglio": "Due donne spiegano a Gigi come si valuta un gioiello. Ascolta cosa si nasconde in quella lezione: Colette sa far parlare un mondo con poche battute.",
     "source": "Adelphi",
-    "url": "https://www.adelphi.it/libro/9788845930973"
+    "url": "https://www.adelphi.it/libro/9788845909429"
   },
   "libri_proposti": [
     {
@@ -160,8 +160,8 @@
       "data": "2026-11-12"
     },
     {
-      "titolo": "Il piccolo libraio di Archangelsk",
-      "autore": "Georges Simenon",
+      "titolo": "Gigi",
+      "autore": "Colette",
       "data": "2026-11-13"
     }
   ],
