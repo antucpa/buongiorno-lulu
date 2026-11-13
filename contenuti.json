@@ -1,62 +1,62 @@
 {
-  "data": "2026-11-12",
+  "data": "2026-11-13",
   "notizie": {
     "italia": {
-      "title": "Industria, settembre in ripresa ma il trimestre arretra",
-      "description": "A settembre la produzione industriale italiana è cresciuta dell’1,2% rispetto ad agosto, secondo la stima dell’Istat. Le fabbriche hanno prodotto più beni strumentali e intermedi, mentre sono scesi i beni di consumo e l’energia. Il recupero del mese non è bastato a invertire il segno del trimestre: tra luglio e settembre la produzione è diminuita dello 0,4% rispetto ai tre mesi precedenti.",
-      "source": "Istat",
-      "url": "https://www.istat.it/comunicato-stampa/produzione-industriale-settembre-2026/",
+      "title": "Manuale di storia, gli autori rispondono a Valditara",
+      "description": "Gli autori di Trame del tempo hanno difeso la pagina del manuale che ha spinto il ministro dell’Istruzione Giuseppe Valditara a chiederne il ritiro a Laterza. Il ministro vi legge un tentativo di indottrinamento. Gli autori rivendicano insieme il passaggio scritto da Carlo Greppi: sostengono che gli studenti possano discuterne in classe e contestarne l’interpretazione sulla base delle fonti.",
+      "source": "TGcom24",
+      "url": "https://www.tgcom24.mediaset.it/skuola/autori-libro-storia-valditara-non-ci-facciamo-intimidire_118905223-202602k.shtml",
       "ambito": "nazionale",
-      "published_at": "2026-11-11"
+      "published_at": "2026-11-12"
     },
     "mondo": {
-      "title": "Libano, i caschi blu verso la fine del mandato",
-      "description": "Dopo 48 anni in Libano, la missione ONU si avvicina alla fine del mandato, fissata a dicembre. La portavoce dell’UNIFIL riferisce che nel sud le ostilità sono diminuite dopo l’accordo di giugno, ma continuano le violazioni israeliane. Secondo le Nazioni Unite quasi un milione di sfollati è rientrato a casa; circa 304.500 persone vivono ancora lontano dai luoghi di origine.",
-      "source": "UN News",
-      "url": "https://news.un.org/en/story/2026/11/1168784",
+      "title": "Sudan, i tagli lasciano 900 mila persone senza aiuti",
+      "description": "Al termine della sua prima missione in Sudan, il direttore del Programma alimentare mondiale Luke Lindberg ha chiesto la fine dei combattimenti. Secondo l’agenzia ONU, la carenza di fondi ha lasciato senza assistenza alimentare circa 900 mila persone negli ultimi mesi. Per raggiungere 5,4 milioni di persone fino ad aprile 2027 servono 520 milioni di dollari.",
+      "source": "Programma alimentare mondiale",
+      "url": "https://www.wfp.org/news/world-food-programme-executive-director-calls-end-fighting-sudan",
       "ambito": "internazionale",
-      "published_at": "2026-11-11"
+      "published_at": "2026-11-12"
     },
     "buona": {
-      "title": "Centinaia di pesci rari tornano nelle acque del Tennessee",
-      "description": "Il 9 novembre il servizio statunitense per la fauna ha raccontato il ritorno in natura di centinaia di piccoli pesci della specie Fundulus julisia, minacciata di estinzione. I biologi li hanno contrassegnati per riconoscerli nei controlli successivi al rilascio.",
-      "source": "U.S. Fish & Wildlife Service",
-      "url": "https://www.fws.gov/story/2026-11/rescue-release-recovery-conservation-takes-village",
+      "title": "Kenya, dimesso l’ultimo paziente in cura per Ebola",
+      "description": "L’11 novembre il Kenya ha annunciato la guarigione dell’ultimo paziente in cura per Ebola. Anche gli ultimi undici contatti sono tornati a casa. L’epidemia non è ancora dichiarata conclusa: dal 12 novembre devono trascorrere 42 giorni senza nuovi casi.",
+      "source": "OMS Africa",
+      "url": "https://www.afro.who.int/countries/kenya/news/kenyas-last-ebola-patient-goes-home-42-day-countdown-begins",
       "ambito": "internazionale",
-      "published_at": "2026-11-09"
-    },
-    "marche": {
-      "title": "Teatro amatoriale, Macerata presenta la rassegna Perugini",
-      "description": "Stasera alle 21 il Teatro della Filarmonica di Macerata presenta i sei spettacoli della rassegna Angelo Perugini, scelti fra 91 candidature da tutta Italia. Alle 21.45 Cesare Catà salirà sul palco con un monologo che intreccia mito e tradizione popolare.",
-      "source": "Comune di Macerata",
-      "url": "https://www.comune.macerata.it/novita/presentazione-della-58-rassegna-angelo-perugini-con-cesare-cata/",
-      "ambito": "macerata",
       "published_at": "2026-11-11"
     },
+    "marche": {
+      "title": "Sabato lo Sferisterio si illumina di blu",
+      "description": "Il 14 novembre lo Sferisterio di Macerata sarà illuminato di blu per la Giornata mondiale del diabete. Il Comune ha accolto l’invito delle associazioni marchigiane dei pazienti: quest’anno la campagna richiama l’attenzione sulla diagnosi precoce e sui fattori di rischio.",
+      "source": "Comune di Macerata",
+      "url": "https://www.comune.macerata.it/novita/lo-sferisterio-si-illumina-di-blu-per-la-giornata-mondiale-del-diabete/",
+      "ambito": "macerata",
+      "published_at": "2026-11-12"
+    },
     "cultura": {
-      "title": "Paris Photo: due secoli di immagini al Grand Palais",
-      "description": "Il 12 novembre apre Paris Photo al Grand Palais di Parigi. Nel programma illustrato il 10 novembre figurano un incontro con l’artista giapponese Mika Ninagawa e l’anteprima del documentario di Gregory Monro sui duecento anni della fotografia. La fiera prosegue fino a domenica 15 novembre.",
-      "source": "Grand Palais",
-      "url": "https://www.grandpalais.fr/fr/magazine/paris-photo-2026-zoom-sur-3-temps-forts",
+      "title": "Latin Grammy, Rosalía vince con Lux",
+      "description": "Il 12 novembre a Las Vegas Rosalía ha vinto il Latin Grammy per l’album dell’anno con Lux: è la terza volta, dopo El mal querer e Motomami. La cantante spagnola ha aperto la cerimonia con tre brani del disco. Uno di questi, La Perla, ha vinto come canzone dell’anno.",
+      "source": "Associated Press",
+      "url": "https://apnews.com/article/70584c66afd078de1df5143f6dc10398",
       "ambito": "internazionale",
-      "published_at": "2026-11-10"
+      "published_at": "2026-11-12"
     }
   },
   "meteo": {
-    "data": "2026-11-12",
+    "data": "2026-11-13",
     "localita": "Macerata",
-    "condizioni": "Cielo nuvoloso, possibili piogge nel pomeriggio e schiarite verso sera.",
-    "min_c": 13.8,
-    "max_c": 19.2,
+    "condizioni": "Nuvolosità in aumento nella seconda parte della giornata, possibili rovesci in serata.",
+    "min_c": 9.4,
+    "max_c": 19.1,
     "source": "AMAP Agrometeo Marche",
-    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/72"
+    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/48"
   },
   "libro": {
-    "titolo": "Il Gattopardo",
-    "autore": "Giuseppe Tomasi di Lampedusa",
-    "consiglio": "Guarda la Sicilia del Risorgimento con gli occhi di un principe che ama le stelle. Nei suoi saloni basta osservare chi invita chi a ballare per capire come cambia il potere.",
-    "source": "Feltrinelli",
-    "url": "https://www.feltrinellieditore.it/opera/il-gattopardo-2/"
+    "titolo": "Il piccolo libraio di Archangelsk",
+    "autore": "Georges Simenon",
+    "consiglio": "Quando Gina scompare, i vicini guardano diversamente suo marito Jonas. Simenon racconta quanto poco basti perché un uomo conosciuto da tutti torni a essere lo straniero del paese.",
+    "source": "Adelphi",
+    "url": "https://www.adelphi.it/libro/9788845930973"
   },
   "libri_proposti": [
     {
@@ -158,13 +158,18 @@
       "titolo": "Il Gattopardo",
       "autore": "Giuseppe Tomasi di Lampedusa",
       "data": "2026-11-12"
+    },
+    {
+      "titolo": "Il piccolo libraio di Archangelsk",
+      "autore": "Georges Simenon",
+      "data": "2026-11-13"
     }
   ],
   "viaggio": {
-    "meta": "Lago di Tovel, Trentino",
-    "consiglio": "Segui la riva tra le conifere e fermati dove il bosco lascia vedere le Dolomiti di Brenta: sotto le pareti chiare l’acqua cambia dal verde al blu.",
-    "source": "Visit Trentino",
-    "url": "https://www.visittrentino.info/it/guida/natura/laghi/lago-di-tovel_md_2273"
+    "meta": "Coimbra, Portogallo",
+    "consiglio": "Attraversa il Pátio das Escolas, il cortile dell’università, poi entra nella Biblioteca Joanina. Dopo la luce della piazza, cerca l’oro che segue gli intagli degli scaffali.",
+    "source": "Turismo de Portugal",
+    "url": "https://www.visitportugal.com/it/content/coimbra-itinerario-acessible"
   },
   "viaggi_proposti": [
     {
@@ -246,14 +251,18 @@
     {
       "meta": "Lago di Tovel, Trentino",
       "data": "2026-11-12"
+    },
+    {
+      "meta": "Coimbra, Portogallo",
+      "data": "2026-11-13"
     }
   ],
   "aforisma": {
-    "testo": "Scrivere è un modo di parlare senza essere interrotti.",
-    "autore": "Jules Renard",
-    "opera": "Diario, 13 aprile 1895",
+    "testo": "In questo mondo, quando si può, bisogna mostrarsi cortesi con tutti, se vogliamo esser ricambiati con pari cortesia nei giorni del bisogno.",
+    "autore": "Carlo Collodi",
+    "opera": "Le avventure di Pinocchio, cap. XXXVI",
     "source": "Wikiquote",
-    "url": "https://it.wikiquote.org/wiki/Jules_Renard"
+    "url": "https://it.wikiquote.org/wiki/Carlo_Collodi#Le_avventure_di_Pinocchio"
   },
   "aforismi_proposti": [
     {
@@ -355,17 +364,22 @@
       "testo": "Scrivere è un modo di parlare senza essere interrotti.",
       "autore": "Jules Renard",
       "data": "2026-11-12"
+    },
+    {
+      "testo": "In questo mondo, quando si può, bisogna mostrarsi cortesi con tutti, se vogliamo esser ricambiati con pari cortesia nei giorni del bisogno.",
+      "autore": "Carlo Collodi",
+      "data": "2026-11-13"
     }
   ],
   "taccuino": {
-    "pensiero": "Quale mestiere vorresti osservare per un’ora? Scegli il gesto delle mani che ti piacerebbe imparare da chi lo fa ogni giorno."
+    "pensiero": "Fai a memoria la mappa del tragitto fino al panettiere. Quali punti di riferimento useresti per guidare chi viene da fuori?"
   },
   "poesia": {
-    "titolo": "Novembre",
-    "autore": "Giovanni Pascoli",
-    "testo": "Gemmea l’aria, il sole così chiaro\nche tu ricerchi gli albicocchi in fiore,\ne del prunalbo l’odorino amaro\nsenti nel cuore...\n\nMa secco è il pruno, e le stecchite piante\ndi nere trame segnano il sereno,\ne vuoto il cielo, e cavo al piè sonante\nsembra il terreno.\n\nSilenzio, intorno: solo, alle ventate,\nodi lontano, da giardini ed orti,\ndi foglie un cader fragile. È l’estate,\nfredda, dei morti.",
-    "source": "Wikisource, Myricae",
-    "url": "https://it.wikisource.org/wiki/Myricae/In_campagna/Novembre"
+    "titolo": "Mezzogiorno alpino",
+    "autore": "Giosuè Carducci",
+    "testo": "Nel grande cerchio de l’alpi, su ’l granito\nSquallido e scialbo, su’ ghiacciai candenti,\nRegna sereno intenso ed infinito\nNel suo grande silenzio il mezzodí.\n\nPini ed abeti senza aura di venti\nSi drizzano nel sol che gli penetra,\nSola garrisce in picciol suon di cetra\nL’acqua che tenue tra i sassi fluí.",
+    "source": "Wikisource, Rime e ritmi",
+    "url": "https://it.wikisource.org/wiki/Rime_e_ritmi/Mezzogiorno_alpino"
   },
   "poesie_proposte": [
     {
@@ -407,6 +421,11 @@
       "titolo": "Novembre",
       "autore": "Giovanni Pascoli",
       "data": "2026-11-11"
+    },
+    {
+      "titolo": "Mezzogiorno alpino",
+      "autore": "Giosuè Carducci",
+      "data": "2026-11-13"
     }
   ],
   "vignette_proposte": [
@@ -548,6 +567,10 @@
     {
       "pensiero": "Quale mestiere vorresti osservare per un’ora? Scegli il gesto delle mani che ti piacerebbe imparare da chi lo fa ogni giorno.",
       "data": "2026-11-12"
+    },
+    {
+      "pensiero": "Fai a memoria la mappa del tragitto fino al panettiere. Quali punti di riferimento useresti per guidare chi viene da fuori?",
+      "data": "2026-11-13"
     }
   ]
 }
