@@ -1,62 +1,62 @@
 {
-  "data": "2026-11-14",
+  "data": "2026-11-15",
   "notizie": {
     "italia": {
-      "title": "Export italiano: cresce il valore, calano i volumi",
-      "description": "Secondo i dati Istat diffusi il 13 novembre, a settembre le esportazioni italiane sono aumentate del 3,8% in valore rispetto a un anno prima, ma sono diminuite del 3,4% in volume. Rispetto ad agosto, l’export è sceso dello 0,2%. Svizzera e Cina hanno sostenuto maggiormente la crescita annua in valore; sono invece calate le vendite verso Francia e Stati Uniti.",
+      "title": "Manovra, telefonata tra Meloni e Messina",
+      "description": "Giorgia Meloni e l’amministratore delegato di Intesa Sanpaolo Carlo Messina si sono sentiti dopo le tensioni sui contributi chiesti alle banche nella manovra. Secondo Repubblica, la telefonata avrebbe chiarito le incomprensioni, con l’intenzione di risentirsi durante l’iter parlamentare. Governo e istituto non commentano: non risultano quindi annunciati accordi o modifiche alle misure contestate, tra cui la dilazione dei crediti Superbonus.",
       "source": "ANSA",
-      "url": "https://www.ansa.it/sito/notizie/economia/pmi/2026/11/13/istat-a-settembre-export-34-in-volume-e-38-in-valore_859d3cbc-f01b-41b5-bb87-dd22dacae839.html",
-      "published_at": "2026-11-13",
+      "url": "https://www.ansa.it/sito/notizie/politica/2026/11/14/meloni-messina-una-telefonata-per-chiarirsi-dopo-le-incomprensioni_44e64f57-2657-4960-b7bf-c79677f0315e.html",
+      "published_at": "2026-11-14",
       "ambito": "nazionale"
     },
     "mondo": {
-      "title": "Stati Uniti, ripartono i voli dopo il blocco nazionale",
-      "description": "Negli Stati Uniti la FAA ha revocato il blocco nazionale delle partenze dopo oltre quattro ore, lasciando migliaia di voli cancellati. Il ministro dei Trasporti Sean Duffy attribuisce il guasto a tecnologie obsolete sovraccaricate, con problemi a radar e comunicazioni. Le autorità non vedono per ora indizi di un attacco informatico, ma avvertono che il ritorno alla normalità richiederà tempo.",
-      "source": "ABC News",
-      "url": "https://abcnews.com/US/nationwide-ground-stop-ordered-airports-faa/story?id=138121848",
+      "title": "Alaska, un democratico conquista il governatorato",
+      "description": "Secondo le proiezioni di NBC e altre testate, Jonathan Kreiss-Tomkins ha vinto le elezioni per governatore dell’Alaska: sarebbe il primo democratico eletto dal 1998. Con oltre il 95% dei voti scrutinati, supera il 50%, davanti alla repubblicana Bernadette Wilson, sostenuta da Trump. Il risultato porta a trenta i governatorati democratici dopo le elezioni di metà mandato negli Stati Uniti.",
+      "source": "ANSA",
+      "url": "https://www.ansa.it/sito/notizie/mondo/2026/11/14/kreiss-tomkins-sbanca-lalaska-primo-governatore-dem-dal-1998_3cdbfc15-79fd-424a-ae76-146dba306eed.html",
       "published_at": "2026-11-14",
       "ambito": "internazionale"
     },
     "buona": {
-      "title": "Tartarughe rarissime tornano in natura in India",
-      "description": "Il 13 novembre il ministro delle Foreste dell’Assam ha annunciato il rilascio di 240 piccole tartarughe dal guscio molle nero, specie minacciata di estinzione. L’intervento rientra in un programma di recupero: protezione dell’habitat e monitoraggio restano essenziali alla sopravvivenza.",
-      "source": "India Today NE",
-      "url": "https://www.indiatodayne.in/amp/assam/story/240-critically-endangered-black-softshell-turtle-hatchlings-released-in-assams-biswanath-1474944-2026-11-13",
+      "title": "Le mangrovie tornano a crescere nel mondo",
+      "description": "Il 13 novembre la NASA ha presentato uno studio basato sui satelliti Landsat: dal 2010 le mangrovie hanno guadagnato quasi duemila chilometri quadrati nel mondo. Colonizzazione naturale e ripristino contribuiscono alla ripresa, pur con perdite ancora presenti in alcune regioni.",
+      "source": "NASA Earth Observatory",
+      "url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
       "published_at": "2026-11-13",
       "ambito": "internazionale"
     },
     "marche": {
-      "title": "Natale, cinque giornate con autobus gratuiti",
-      "description": "La Giunta di Macerata ha approvato gli autobus gratuiti il 19, 24 e 31 dicembre e il 2 e 5 gennaio, con orario festivo. Saranno gratuiti anche i parcheggi APM in struttura il 5, 12, 19, 24 e 31 dicembre.",
+      "title": "Reati stradali, formazione alla Mozzi-Borgetti",
+      "description": "Il Comune ha annunciato il 12 novembre un convegno sui reati stradali: martedì 17, alla biblioteca Mozzi-Borgetti di Macerata, gli operatori approfondiranno accertamenti su alcol, droghe e omissione di soccorso, dalla contestazione delle violazioni alla testimonianza in giudizio.",
       "source": "Comune di Macerata",
-      "url": "https://www.comune.macerata.it/novita/natale-la-giunta-approva-le-agevolazioni-per-gli-spostamenti-in-citta/",
-      "published_at": "2026-11-13",
+      "url": "https://www.comune.macerata.it/novita/sicurezza-stradale-un-convegno-sullaccertamento-dei-reati-legati-ad-alcol-droghe-e-omissione-di-soccorso/",
+      "published_at": "2026-11-12",
       "ambito": "macerata"
     },
     "cultura": {
-      "title": "Da Canova a Kiefer, il dialogo Italia-Germania",
-      "description": "Il 13 novembre Mattarella ha inaugurato a Vicenza Ispirazione Europa, dedicata a oltre due secoli di relazioni artistiche fra Italia e Germania. Allestita nella Basilica Palladiana e curata da Gabriella Belli e Valerio Terraroli, la mostra apre un progetto che comprenderà anche Francia e Spagna.",
-      "source": "Presidenza della Repubblica",
-      "url": "https://www.quirinale.it/it/notizie/mattarella-inaugura-mostra-ispirazione-europa-italia-germania-pittura-scultura-ottocento-novecento-canova-kiefer",
-      "published_at": "2026-11-13",
+      "title": "Paddington prepara il debutto a Broadway",
+      "description": "Annunciato il 9 novembre il cast di Paddington The Musical a Broadway, con Jessie Mueller e Tony Hale. James Hameed darà voce all’orso, interpretato in scena da Arti Shah. Le rappresentazioni inizieranno il 30 marzo 2027; la prima ufficiale è prevista il 18 aprile.",
+      "source": "Broadway.com",
+      "url": "https://www.broadway.com/buzz/207662/jessie-mueller-tony-hale-and-more-to-star-in-paddington-the-musical-on-broadway/",
+      "published_at": "2026-11-09",
       "ambito": "internazionale"
     }
   },
   "meteo": {
-    "data": "2026-11-14",
+    "data": "2026-11-15",
     "localita": "Macerata",
-    "condizioni": "Nuvole basse e schiarite; nuova nuvolosità verso sera. Temperature in netto calo.",
-    "min_c": 6.4,
-    "max_c": 11.9,
+    "condizioni": "Nuvoloso con piogge al mattino, in attenuazione nel pomeriggio.",
+    "min_c": 8.5,
+    "max_c": 11.4,
     "source": "AMAP Agrometeo Marche",
-    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/24"
+    "url": "https://meteo.regione.marche.it/Previsioni/Giornaliere/48"
   },
   "libro": {
-    "titolo": "La luna e i falò",
-    "autore": "Cesare Pavese",
-    "consiglio": "Tornare nei luoghi dell’infanzia non significa ritrovarli intatti. Leggi Pavese per ascoltare come un paesaggio custodisce amicizie, assenze e domande sulle proprie radici, senza risposte facili.",
-    "source": "Santelli editore",
-    "url": "https://www.santellieditore.it/product/la-luna-e-i-falo/"
+    "titolo": "Siddhartha",
+    "autore": "Hermann Hesse",
+    "consiglio": "Un breve romanzo ambientato in India, per interrogarsi sul rapporto fra esperienza e saggezza. La ricerca del protagonista invita a riconoscere domande che restano aperte.",
+    "source": "Adelphi",
+    "url": "https://www.adelphi.it/libro/9788845901843"
   },
   "libri_proposti": [
     {
@@ -168,13 +168,18 @@
       "titolo": "La luna e i falò",
       "autore": "Cesare Pavese",
       "data": "2026-11-14"
+    },
+    {
+      "titolo": "Siddhartha",
+      "autore": "Hermann Hesse",
+      "data": "2026-11-15"
     }
   ],
   "viaggio": {
-    "meta": "Padova, Veneto",
-    "consiglio": "Nella Cappella degli Scrovegni segui i gesti dipinti da Giotto sotto la volta stellata. Poi visita le serre dell’Orto Botanico, fra piante di climi diversi.",
-    "source": "Turismo Padova",
-    "url": "https://www.turismopadova.it/luogo/cappella-degli-scrovegni/"
+    "meta": "Laghi di Plitvice, Croazia",
+    "consiglio": "Esplora il canyon dei Laghi Inferiori e cerca la Grande Cascata: tra acqua e pareti calcaree, il paesaggio invita a osservare forme, riflessi e colori.",
+    "source": "Parco nazionale dei Laghi di Plitvice",
+    "url": "https://np-plitvicka-jezera.hr/en/plan-your-visit/istrazite-jezera/activities/lake-tour-programmes/"
   },
   "viaggi_proposti": [
     {
@@ -264,14 +269,18 @@
     {
       "meta": "Padova, Veneto",
       "data": "2026-11-14"
+    },
+    {
+      "meta": "Laghi di Plitvice, Croazia",
+      "data": "2026-11-15"
     }
   ],
   "aforisma": {
-    "testo": "In tutti i casi tuoi\nsempre alla fine di guardar procura.",
-    "autore": "Jean de La Fontaine",
-    "opera": "Favole, III, V: La Volpe e il Becco",
+    "testo": "In sogno una parola e il suo suono dipinge intera la persona che la emette.",
+    "autore": "Italo Svevo",
+    "opera": "Corto viaggio sentimentale",
     "source": "Wikiquote",
-    "url": "https://it.wikiquote.org/wiki/Jean_de_La_Fontaine#Le_favole"
+    "url": "https://it.wikiquote.org/wiki/Italo_Svevo#Corto_viaggio_sentimentale"
   },
   "aforismi_proposti": [
     {
@@ -383,17 +392,22 @@
       "testo": "In tutti i casi tuoi\nsempre alla fine di guardar procura.",
       "autore": "Jean de La Fontaine",
       "data": "2026-11-14"
+    },
+    {
+      "testo": "In sogno una parola e il suo suono dipinge intera la persona che la emette.",
+      "autore": "Italo Svevo",
+      "data": "2026-11-15"
     }
   ],
   "taccuino": {
-    "pensiero": "Chiedi a qualcuno quale piatto gli riesce meglio e come ha imparato a prepararlo. Quale storia accompagna quella ricetta?"
+    "pensiero": "Segui per un minuto l’ombra di una nuvola sul paesaggio. Quali colori cambiano quando la luce torna?"
   },
   "poesia": {
-    "titolo": "Mezzogiorno alpino",
-    "autore": "Giosuè Carducci",
-    "testo": "Nel grande cerchio de l’alpi, su ’l granito\nSquallido e scialbo, su’ ghiacciai candenti,\nRegna sereno intenso ed infinito\nNel suo grande silenzio il mezzodí.\n\nPini ed abeti senza aura di venti\nSi drizzano nel sol che gli penetra,\nSola garrisce in picciol suon di cetra\nL’acqua che tenue tra i sassi fluí.",
-    "source": "Wikisource, Rime e ritmi",
-    "url": "https://it.wikisource.org/wiki/Rime_e_ritmi/Mezzogiorno_alpino"
+    "titolo": "Temporale",
+    "autore": "Giovanni Pascoli",
+    "testo": "Un bubbolìo lontano...\n\nRosseggia l’orizzonte,\ncome affocato, a mare:\nnero di pece, a monte,\nstracci di nubi chiare:\ntra il nero un casolare:\nun’ala di gabbiano.",
+    "source": "Wikisource, Myricae",
+    "url": "https://it.wikisource.org/wiki/Myricae/In_campagna/Temporale"
   },
   "poesie_proposte": [
     {
@@ -440,6 +454,11 @@
       "titolo": "Mezzogiorno alpino",
       "autore": "Giosuè Carducci",
       "data": "2026-11-13"
+    },
+    {
+      "titolo": "Temporale",
+      "autore": "Giovanni Pascoli",
+      "data": "2026-11-15"
     }
   ],
   "vignette_proposte": [
@@ -596,6 +615,10 @@
     {
       "pensiero": "Chiedi a qualcuno quale piatto gli riesce meglio e come ha imparato a prepararlo. Quale storia accompagna quella ricetta?",
       "data": "2026-11-14"
+    },
+    {
+      "pensiero": "Segui per un minuto l’ombra di una nuvola sul paesaggio. Quali colori cambiano quando la luce torna?",
+      "data": "2026-11-15"
     }
   ]
 }
