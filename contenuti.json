@@ -1,62 +1,62 @@
 {
-  "data": "2026-11-20",
+  "data": "2026-11-21",
   "notizie": {
     "italia": {
-      "title": "Sciopero generale, treni fermi dalla sera",
-      "description": "Oggi Cgil e Cobas hanno proclamato due scioperi generali contro la manovra, con manifestazioni in tutta Italia. L’astensione coinvolge scuola, sanità e trasporti locali, nel rispetto dei servizi garantiti e con alcune aziende escluse. I voli non si fermano. Per i treni è previsto uno sciopero separato, indetto da Sgb e Cub, dalle 21 di oggi alle 20 di sabato.",
-      "source": "ANSA",
-      "url": "https://www.ansa.it/sito/notizie/economia/2026/11/19/sciopero-generale-da-scuola-a-bus.-treni-dalla-sera-niente-stop-aerei_01d5c5ed-72b4-4546-acc1-472847a25848.html",
-      "published_at": "2026-11-19",
+      "title": "Sciopero, la Cgil rivendica un milione e mezzo in piazza",
+      "description": "Lo sciopero generale del 20 novembre ha portato cortei in oltre cento piazze contro la manovra economica. La Cgil rivendica un milione e mezzo di partecipanti e chiede salari e pensioni più alti, risorse per sanità e scuola e maggiore sicurezza sul lavoro. Landini annuncia un presidio al Parlamento se il testo non cambierà. Le cifre della partecipazione sono sindacali.",
+      "source": "Sky TG24",
+      "url": "https://tg24.sky.it/cronaca/2026/11/20/sciopero-oggi-20-novembre-diretta",
+      "published_at": "2026-11-20",
       "ambito": "nazionale"
     },
     "mondo": {
-      "title": "Vertice a tre, impegni sul rischio nucleare",
-      "description": "Xi Jinping, Donald Trump e Vladimir Putin hanno firmato il 19 novembre a Shenzhen una dichiarazione congiunta. I tre Paesi intendono avviare un dialogo per ridurre i rischi nucleari, promuovere una riforma dell’Onu e aumentare le forniture di prodotti petroliferi. Il documento critica inoltre l’operato della Corte penale internazionale. Non contiene riferimenti alle guerre in Ucraina e Iran né accordi di cessate il fuoco.",
-      "source": "ANSA",
-      "url": "https://www.ansa.it/sito/notizie/mondo/2026/11/19/la-dichiarazione-di-pace-in-4-punti-senza-ucraina-e-iran_400b19ac-0bf7-4819-b641-8d1a7de9990c.html",
-      "published_at": "2026-11-19",
+      "title": "Londra e UE, accordo sui controlli alimentari",
+      "description": "Regno Unito e Unione europea hanno concordato il 20 novembre un accordo sanitario e fitosanitario per facilitare gli scambi di alimenti, animali e piante. Secondo l’agenzia britannica per la sicurezza alimentare, dal primo marzo 2028 saranno rimossi gran parte dei controlli alle frontiere. Le imprese dovranno adeguarsi alle regole europee anche quando vendono soltanto sul mercato interno britannico.",
+      "source": "Food Standards Agency",
+      "url": "https://food.blog.gov.uk/2026/11/20/what-the-new-uk-eu-sps-agreement-means-for-food-and-feed-safety-and-food-businesses/",
+      "published_at": "2026-11-20",
       "ambito": "internazionale"
     },
     "buona": {
-      "title": "I prati restaurati conservano la biodiversità",
-      "description": "Una ricerca illustrata il 19 novembre sul blog delle riviste IAVS mostra che i prati restaurati in Svizzera conservano gran parte della biodiversità recuperata anche dopo 25 anni. Semina e trasferimento di fieno hanno dato risultati simili, incoraggiando il ripristino degli ecosistemi.",
-      "source": "Vegetation Science Blog – IAVS",
-      "url": "https://vegsciblog.org/2026/11/19/restoration-of-mesic-grasslands/",
-      "published_at": "2026-11-19",
+      "title": "Eritrea, il tracoma non è più un problema sanitario",
+      "description": "Il 16 novembre l’OMS ha certificato che l’Eritrea ha eliminato il tracoma come problema di salute pubblica. Il risultato arriva dopo interventi chirurgici, antibiotici, igiene del viso e miglioramenti nell’accesso all’acqua: una conquista contro un’infezione che può provocare cecità.",
+      "source": "OMS",
+      "url": "https://www.who.int/news/item/16-11-2026-eritrea-eliminates-trachoma-a-major-public-health-milestone",
+      "published_at": "2026-11-16",
       "ambito": "internazionale"
     },
     "marche": {
-      "title": "Vento forte, parchi e cimitero chiusi",
-      "description": "A Macerata restano chiusi oggi i parchi pubblici, gli impianti sportivi pubblici all’aperto e il cimitero, per l’ordinanza emanata il 19 novembre in seguito all’allerta vento. Il Centro Operativo Comunale coordina gli interventi; il Comune raccomanda massima prudenza.",
+      "title": "Macerata, riaprono parchi e cimitero",
+      "description": "A Macerata il 20 novembre è stata revocata l’ordinanza adottata per il forte vento. Con l’attenuazione dei fenomeni atmosferici riaprono i parchi, gli impianti sportivi all’aperto e il cimitero comunale, tornando accessibili dopo la chiusura precauzionale.",
       "source": "Comune di Macerata",
-      "url": "https://www.comune.macerata.it/novita/ancora-allerta-meteo-disposta-la-chiusura-di-parchi-impianti-sportivi-allaperto-e-cimitero/",
-      "published_at": "2026-11-19",
+      "url": "https://www.comune.macerata.it/novita/maltempo-revocata-lordinanza-per-il-vento/",
+      "published_at": "2026-11-20",
       "ambito": "macerata"
     },
     "cultura": {
-      "title": "A Miguel Gotor lo Strega Saggistica",
-      "description": "Il 18 novembre Miguel Gotor ha vinto la seconda edizione del Premio Strega Saggistica con L’omicidio di Piersanti Mattarella, pubblicato da Einaudi. Il saggio ricostruisce il contesto dell’assassinio del presidente siciliano nel 1980. Ha ottenuto 31 voti su 53; a Luciano Floridi il riconoscimento internazionale.",
-      "source": "Premio Strega Saggistica",
-      "url": "https://premiostrega.it/PSS/vince-la-seconda-edizione-del-premio-strega-saggistica-miguel-gotor/",
-      "published_at": "2026-11-18",
-      "ambito": "nazionale"
+      "title": "Shakespeare, Hiddleston e Atwell a Broadway",
+      "description": "Il 19 novembre ha debuttato ufficialmente a Broadway «Much Ado About Nothing», diretto da Jamie Lloyd con Tom Hiddleston e Hayley Atwell. Dopo Londra, la commedia di Shakespeare approda al Winter Garden Theatre: Atwell esordisce a Broadway come Beatrice, accanto al Benedick di Hiddleston.",
+      "source": "BroadwayWorld",
+      "url": "https://www.broadwayworld.com/article/Photos-Tom-Hiddleston-Hayley-Atwell-and-Company-Celebrate-Opening-Night-of-MUCH-ADO-ABOUT-NOTHING-on-Broadway-20261120",
+      "published_at": "2026-11-20",
+      "ambito": "internazionale"
     }
   },
   "meteo": {
-    "data": "2026-11-20",
+    "data": "2026-11-21",
     "localita": "Macerata",
-    "condizioni": "Cielo sereno, senza piogge. Venti sostenuti da ovest-sudovest.",
-    "min_c": 11,
+    "condizioni": "Qualche nube sparsa.",
+    "min_c": 10,
     "max_c": 16,
     "source": "iLMeteo.it",
     "url": "https://www.ilmeteo.it/meteo/macerata/giornaliero"
   },
   "libro": {
-    "titolo": "La strada che va in città",
-    "autore": "Natalia Ginzburg",
-    "consiglio": "Una giovane guarda alla città come a una promessa di cambiamento. La voce asciutta di Ginzburg invita a riconoscere desideri, illusioni e solitudine senza giudicare i personaggi.",
-    "source": "Biblioteca nazionale Braidense",
-    "url": "https://opac.bibliotecabraidense.org/opac_braidense/opaclib?db=solr_braidense&do_cmd=search_show_cmd&fname=none&format=unimarc&from=14&nentries=1&resultForward=opac%2Fbraidense%2Ffull_simili.jsp&rpnlabel=+Nomi+%3D++Ginzburg%2C+Natalia+&rpnquery=%40attrset+bib-1++%40attr+1%3D1003+%40attr+4%3D1+%22+Ginzburg%2C+Natalia%22&searchForm=opac%2Fbraidense%2Ferror.jsp&select_db=solr_braidense&simili_id=TO00916912&totalResult=86"
+    "titolo": "Un incantevole aprile",
+    "autore": "Elizabeth von Arnim",
+    "consiglio": "Quattro donne condividono una vacanza italiana e mettono in discussione le proprie abitudini. Leggilo per l’ironia gentile con cui esplora convivenza, desideri e possibilità di cambiamento.",
+    "source": "Giunti Editore",
+    "url": "https://giunti.it/products/un-incantevole-aprile-von-arnim-elizabeth-9788809909762"
   },
   "libri_proposti": [
     {
@@ -188,13 +188,18 @@
       "titolo": "La strada che va in città",
       "autore": "Natalia Ginzburg",
       "data": "2026-11-20"
+    },
+    {
+      "titolo": "Un incantevole aprile",
+      "autore": "Elizabeth von Arnim",
+      "data": "2026-11-21"
     }
   ],
   "viaggio": {
-    "meta": "Ragusa Ibla, Sicilia",
-    "consiglio": "Passeggia fra le facciate barocche fino alla piazza del duomo di San Giorgio, poi raggiungi il Giardino Ibleo: una pausa verde per cambiare ritmo e prospettiva.",
-    "source": "Italia.it – Ministero del Turismo",
-    "url": "https://www.italia.it/it/sicilia/ragusa/ragusa-ibla"
+    "meta": "Sintra, Portogallo",
+    "consiglio": "Esplora i simboli della Quinta da Regaleira e sali al Palazzo da Pena: tra architetture fantastiche e vegetazione, Sintra invita a osservare come il paesaggio diventa racconto.",
+    "source": "Visit Portugal",
+    "url": "https://www.visitportugal.com/pt-pt/content/descobrir-sintra?toggleid=7"
   },
   "viaggi_proposti": [
     {
@@ -300,14 +305,18 @@
     {
       "meta": "Ragusa Ibla, Sicilia",
       "data": "2026-11-20"
+    },
+    {
+      "meta": "Sintra, Portogallo",
+      "data": "2026-11-21"
     }
   ],
   "aforisma": {
-    "testo": "Il tempo non è che il ruscello dove io vado a pesca.",
-    "autore": "Henry David Thoreau",
-    "opera": "Walden, cap. II, ed. 1995, p. 100",
+    "testo": "Sbagliando s'impara, è un vecchio proverbio. Il nuovo potrebbe essere che sbagliando s'inventa.",
+    "autore": "Gianni Rodari",
+    "opera": "Grammatica della fantasia",
     "source": "Wikiquote",
-    "url": "https://it.wikiquote.org/wiki/Henry_David_Thoreau#Walden_ovvero_Vita_nei_boschi"
+    "url": "https://it.wikiquote.org/wiki/Gianni_Rodari#Grammatica_della_fantasia"
   },
   "aforismi_proposti": [
     {
@@ -439,17 +448,22 @@
       "testo": "Il tempo non è che il ruscello dove io vado a pesca.",
       "autore": "Henry David Thoreau",
       "data": "2026-11-20"
+    },
+    {
+      "testo": "Sbagliando s'impara, è un vecchio proverbio. Il nuovo potrebbe essere che sbagliando s'inventa.",
+      "autore": "Gianni Rodari",
+      "data": "2026-11-21"
     }
   ],
   "taccuino": {
-    "pensiero": "Osserva come germoglia una cipolla dimenticata. Quali riserve nascoste permettono a una pianta di ricominciare senza aspettare condizioni perfette?"
+    "pensiero": "Quando ringrazi qualcuno, nomina il gesto preciso che ti ha aiutato. Quale attenzione rischierebbe altrimenti di passare inosservata?"
   },
   "poesia": {
-    "titolo": "Lavandare",
+    "titolo": "Arano",
     "autore": "Giovanni Pascoli",
-    "testo": "Nel campo mezzo grigio e mezzo nero\nresta un aratro senza buoi, che pare\ndimenticato, tra il vapor leggero.\n\nE cadenzato dalla gora viene\nlo sciabordare delle lavandare\ncon tonfi spessi e lunghe cantilene:\n\nIl vento soffia e nevica la frasca,\ne tu non torni ancora al tuo paese!\nquando partisti, come son rimasta!\ncome l’aratro in mezzo alla maggese.",
-    "source": "Wikisource, Myricae",
-    "url": "https://it.wikisource.org/wiki/Myricae/L%27ultima_passeggiata/Lavandare"
+    "testo": "Al campo, dove roggio nel filare\nqualche pampano brilla, e dalle fratte\nsembra la nebbia mattinal fumare,\n\narano: a lente grida, uno le lente\nvacche spinge; altri semina; un ribatte\nle porche con sua marra pazïente;\n\nchè il passero saputo in cor già gode,\ne il tutto spia dai rami irti del moro;\ne il pettirosso: nelle siepi s’ode\nil suo sottil tintinno come d’oro.",
+    "source": "Wikisource",
+    "url": "https://it.wikisource.org/wiki/Myricae/L%27ultima_passeggiata/Arano"
   },
   "poesie_proposte": [
     {
@@ -506,6 +520,11 @@
       "titolo": "Lavandare",
       "autore": "Giovanni Pascoli",
       "data": "2026-11-19"
+    },
+    {
+      "titolo": "Arano",
+      "autore": "Giovanni Pascoli",
+      "data": "2026-11-21"
     }
   ],
   "vignette_proposte": [
@@ -692,6 +711,10 @@
     {
       "pensiero": "Osserva come germoglia una cipolla dimenticata. Quali riserve nascoste permettono a una pianta di ricominciare senza aspettare condizioni perfette?",
       "data": "2026-11-20"
+    },
+    {
+      "pensiero": "Quando ringrazi qualcuno, nomina il gesto preciso che ti ha aiutato. Quale attenzione rischierebbe altrimenti di passare inosservata?",
+      "data": "2026-11-21"
     }
   ]
 }
