@@ -1,62 +1,62 @@
 {
-  "data": "2026-11-22",
+  "data": "2026-11-23",
   "notizie": {
     "italia": {
-      "title": "Maltempo, allerta arancione in parte della Toscana",
-      "description": "Una perturbazione atlantica porta oggi piogge e temporali al Centro-Nord. La Protezione civile ha diramato un’allerta arancione per rischio idrogeologico nei bacini settentrionali della Toscana e gialla in settori di sette regioni. Sono previste precipitazioni intense soprattutto su Liguria, Toscana ed Emilia-Romagna, oltre a venti forti su diverse regioni e possibili mareggiate lungo le coste esposte.",
+      "title": "Manovra, la CNA analizza bonus e incentivi",
+      "description": "Secondo un’analisi della CNA diffusa ieri, otto misure su dieci nella manovra sono proroghe o rifinanziamenti. Tra cinquanta bonus e incentivi esaminati, soltanto sette risultano nuovi. Per le trentuno voci quantificabili, sei interventi concentrano l’88,7% delle risorse censite. Il dato riguarda questo campione, non l’intero bilancio dello Stato; le misure restano parte del testo all’esame del Parlamento.",
       "source": "ANSA",
-      "url": "https://www.ansa.it/sito/notizie/cronaca/2026/11/21/maltempo-allerta-gialla-in-sette-regioni-arancione-in-toscana_68a7c12f-25d6-4d67-9b4c-c8960f465023.html",
-      "published_at": "2026-11-21",
+      "url": "https://www.ansa.it/sito/notizie/economia/pmi/2026/11/22/cna-nella-manovra-8-misure-su-10-sono-proroghe-o-rifinanziamenti_7d552854-2826-4d21-8aac-2261425a3742.html",
+      "published_at": "2026-11-22",
       "ambito": "nazionale"
     },
     "mondo": {
-      "title": "COP31, nuova proposta dopo una notte di negoziati",
-      "description": "Alla conferenza sul clima di Antalya, Turchia e Australia hanno presentato una nuova proposta dopo negoziati proseguiti oltre la scadenza di venerdì. Il presidente Murat Kurum ritiene affrontate le divergenze sui combustibili fossili e sugli aiuti per l’adattamento climatico dei Paesi in sviluppo. Quasi duecento delegazioni devono ancora approvare il testo: l’annuncio di un’intesa vicina non equivale a un accordo concluso.",
-      "source": "Reuters / Internazionale",
-      "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/22/cop31-climate-talks-close-to-final-deal-says-summit-president",
+      "title": "Trump apre al dialogo con i democratici",
+      "description": "Donald Trump si è detto disponibile a collaborare con i democratici, che da gennaio guideranno entrambe le camere del Congresso americano. In un’intervista a Fox News ha indicato possibili convergenze sulla sanità e sul costo della vita. Fra i temi discussi figurano un limite agli interessi e alle commissioni delle carte di credito: resta un’apertura politica, senza un’intesa legislativa conclusa.",
+      "source": "ANSA",
+      "url": "https://www.ansa.it/sito/notizie/mondo/2026/11/22/trump-apre-ai-democratici-pronto-a-collaborare-col-nuovo-congresso_a7791188-3388-4e6f-bf39-202dd6c2e6a9.html",
       "published_at": "2026-11-22",
       "ambito": "internazionale"
     },
     "buona": {
-      "title": "Brasile, più accesso allo screening del collo uterino",
-      "description": "Il test del DNA del papillomavirus è ora disponibile nella sanità pubblica di 26 delle 27 unità federali brasiliane. Lo riferisce l’OMS il 17 novembre: lo screening aiuta a individuare lesioni precancerose, da seguire con diagnosi e cure appropriate.",
-      "source": "Organizzazione mondiale della sanità",
-      "url": "https://www.who.int/news/item/17-11-2026-countries-expand-cervical-cancer-screening-and-treatment--bringing-elimination-closer",
-      "published_at": "2026-11-17",
+      "title": "Guyana, neonati più protetti",
+      "description": "Il 19 novembre la Guyana ha annunciato il riconoscimento dell’OMS: la trasmissione da madre a figlio di HIV e sifilide è eliminata come problema di salute pubblica. Non significa eradicazione: screening, cure e prevenzione proseguono.",
+      "source": "Governo della Guyana",
+      "url": "https://dpi.gov.gy/press-release-guyana-makes-history-who-validates-elimination-of-mother-to-child-transmission-of-hiv-and-syphilis/",
+      "published_at": "2026-11-19",
       "ambito": "internazionale"
     },
     "marche": {
-      "title": "I sapori della tradizione in piazza della Libertà",
-      "description": "Oggi piazza della Libertà a Macerata ospita «I sapori de na orda», appuntamento promosso dall’UNPLI provinciale con il Comune. Sei Pro Loco propongono ricette tradizionali, fra polenta, frascarelli e ceci. L’iniziativa recupera la giornata rinviata del primo novembre.",
-      "source": "Comune di Macerata",
-      "url": "https://www.comune.macerata.it/novita/i-sapori-de-na-orda-domenica-22-novembre-in-piazza-della-liberta-un-viaggio-nella-cucina-tradizionale/",
-      "published_at": "2026-11-20",
+      "title": "Riaperta la chiesa del Sacro Cuore",
+      "description": "La chiesa del Sacro Cuore a Macerata è tornata ieri ad accogliere i fedeli dopo i lavori per i danni del terremoto del 2016. L’intervento ha consolidato strutture e copertura dell’abside e restaurato il ciclo pittorico di Ciro Pavisa.",
+      "source": "Cronache Maceratesi",
+      "url": "https://www.cronachemaceratesi.it/2026/11/22/riaperta-la-chiesa-del-sacro-cuore-castelli-luogo-di-culto-e-sociale-rafforziamo-il-senso-di-appartenenza/2129108/",
+      "published_at": "2026-11-22",
       "ambito": "macerata"
     },
     "cultura": {
-      "title": "Ariana Grande entra nella famiglia dei Fotter",
-      "description": "Arriva nei cinema italiani il 25 novembre «Ti presento i Fotter», quarto capitolo della commedia familiare con Ben Stiller e Robert De Niro. ANSA presenta il film il 20 novembre: Ariana Grande interpreta la fidanzata del figlio di Greg, che stavolta diventa il padre diffidente.",
-      "source": "ANSA",
-      "url": "https://www.ansa.it/amp/sito/notizie/cultura/cinema/2026/11/20/ti-presento-i-fotter-in-famiglia-spunta-ariana-grande_93417865-9aaf-407a-829c-f16d389f4abe.html",
-      "published_at": "2026-11-20",
+      "title": "Hunger Games, debutto da 120 milioni",
+      "description": "Il nuovo «Hunger Games: Sunrise on the Reaping» debutta in testa agli incassi nordamericani. Secondo le stime diffuse il 22 novembre da Exhibitor Relations, raccoglie 120 milioni di dollari nel primo fine settimana. Diretto da Francis Lawrence, il film torna all’universo di Suzanne Collins con Joseph Zada e McKenna Grace.",
+      "source": "AFP",
+      "url": "https://www.afp.com/en/hunger-games-prequel-victorious-n-america-box-office-debut",
+      "published_at": "2026-11-22",
       "ambito": "internazionale"
     }
   },
   "meteo": {
-    "data": "2026-11-22",
+    "data": "2026-11-23",
     "localita": "Macerata",
-    "condizioni": "Piogge intermittenti alternate a schiarite.",
-    "min_c": 9,
-    "max_c": 14,
+    "condizioni": "Nuvolosità di passaggio.",
+    "min_c": 6,
+    "max_c": 12,
     "source": "iLMeteo.it",
     "url": "https://www.ilmeteo.it/meteo/macerata/giornaliero"
   },
   "libro": {
-    "titolo": "Il cavaliere inesistente",
-    "autore": "Italo Calvino",
-    "consiglio": "Un’armatura vuota attraversa il mondo cavalleresco con serietà impeccabile. Leggilo per l’ironia con cui Calvino interroga identità e dovere, trasformando una fantasia medievale in domande vicine a noi.",
+    "titolo": "Il mastino dei Baskerville",
+    "autore": "Arthur Conan Doyle",
+    "consiglio": "Una morte sospetta e una leggenda inquietante mettono alla prova Sherlock Holmes. Leggilo per il piacere di distinguere gli indizi dalle paure, seguendo un mistero dall’atmosfera gotica.",
     "source": "Mondadori",
-    "url": "https://www.ragazzimondadori.it/libri/il-cavaliere-inesistente-italo-calvino-9788804776376/"
+    "url": "https://www.ragazzimondadori.it/libri/il-mastino-dei-baskerville-arthur-conan-doyle-9788804617006/"
   },
   "libri_proposti": [
     {
@@ -198,13 +198,18 @@
       "titolo": "Il cavaliere inesistente",
       "autore": "Italo Calvino",
       "data": "2026-11-22"
+    },
+    {
+      "titolo": "Il mastino dei Baskerville",
+      "autore": "Arthur Conan Doyle",
+      "data": "2026-11-23"
     }
   ],
   "viaggio": {
-    "meta": "Grotte di Frasassi, Marche – Italia",
-    "consiglio": "Segui il percorso turistico tra stalattiti, stalagmiti e colate cristalline. Osserva le forme create dall’acqua: il paesaggio sotterraneo invita a immaginare il tempo lento della roccia.",
-    "source": "Grotte di Frasassi",
-    "url": "https://www.frasassi.com/it/attivita/percorso-turistico/"
+    "meta": "Dresda, Germania",
+    "consiglio": "Passeggia nel centro storico tra lo Zwinger e la Frauenkirche. Soffermati sulle architetture e sui dettagli decorativi: due tappe per scoprire il volto artistico della città.",
+    "source": "Dresden Marketing",
+    "url": "https://www.visit-dresden-elbland.de/en/tour/dresden-highlight-route/"
   },
   "viaggi_proposti": [
     {
@@ -318,14 +323,18 @@
     {
       "meta": "Grotte di Frasassi, Marche – Italia",
       "data": "2026-11-22"
+    },
+    {
+      "meta": "Dresda, Germania",
+      "data": "2026-11-23"
     }
   ],
   "aforisma": {
-    "testo": "Quando si sa vedere, si ritrova lo spirito di un secolo e la fisionomia di un re perfino in un picchiotto.",
-    "autore": "Victor Hugo",
-    "opera": "Notre-Dame de Paris, vol. I, p. 152",
+    "testo": "fatti non foste a viver come bruti,\nma per seguir virtute e canoscenza.",
+    "autore": "Dante Alighieri",
+    "opera": "Inferno, XXVI, 119–120",
     "source": "Wikiquote",
-    "url": "https://it.wikiquote.org/wiki/Victor_Hugo#Notre-Dame_de_Paris"
+    "url": "https://it.wikiquote.org/wiki/Divina_Commedia#Inferno"
   },
   "aforismi_proposti": [
     {
@@ -467,17 +476,22 @@
       "testo": "Quando si sa vedere, si ritrova lo spirito di un secolo e la fisionomia di un re perfino in un picchiotto.",
       "autore": "Victor Hugo",
       "data": "2026-11-22"
+    },
+    {
+      "testo": "fatti non foste a viver come bruti,\nma per seguir virtute e canoscenza.",
+      "autore": "Dante Alighieri",
+      "data": "2026-11-23"
     }
   ],
   "taccuino": {
-    "pensiero": "Prendi un foglio e piegalo senza un progetto. Quale forma inattesa ti suggerisce il primo passo per costruire qualcosa?"
+    "pensiero": "Quale domanda faresti a chi abita nella tua strada da più tempo? Prova a scoprire come è cambiato un luogo familiare."
   },
   "poesia": {
-    "titolo": "Arano",
+    "titolo": "Fides",
     "autore": "Giovanni Pascoli",
-    "testo": "Al campo, dove roggio nel filare\nqualche pampano brilla, e dalle fratte\nsembra la nebbia mattinal fumare,\n\narano: a lente grida, uno le lente\nvacche spinge; altri semina; un ribatte\nle porche con sua marra pazïente;\n\nchè il passero saputo in cor già gode,\ne il tutto spia dai rami irti del moro;\ne il pettirosso: nelle siepi s’ode\nil suo sottil tintinno come d’oro.",
+    "testo": "Quando brillava il vespero vermiglio\ne il cipresso pareva oro, oro fino,\nla madre disse al piccoletto figlio:\nCosì fatto è lassù tutto un giardino.\nIl bimbo dorme, e sogna i rami d’oro,\ngli alberi d’oro, le foreste d’oro;\nmentre il cipresso nella notte nera\nscagliasi al vento, piange alla bufera.",
     "source": "Wikisource",
-    "url": "https://it.wikisource.org/wiki/Myricae/L%27ultima_passeggiata/Arano"
+    "url": "https://it.wikisource.org/wiki/Myricae/Creature/Fides"
   },
   "poesie_proposte": [
     {
@@ -539,6 +553,11 @@
       "titolo": "Arano",
       "autore": "Giovanni Pascoli",
       "data": "2026-11-21"
+    },
+    {
+      "titolo": "Fides",
+      "autore": "Giovanni Pascoli",
+      "data": "2026-11-23"
     }
   ],
   "vignette_proposte": [
@@ -740,6 +759,10 @@
     {
       "pensiero": "Prendi un foglio e piegalo senza un progetto. Quale forma inattesa ti suggerisce il primo passo per costruire qualcosa?",
       "data": "2026-11-22"
+    },
+    {
+      "pensiero": "Quale domanda faresti a chi abita nella tua strada da più tempo? Prova a scoprire come è cambiato un luogo familiare.",
+      "data": "2026-11-23"
     }
   ]
 }
